@@ -16,8 +16,9 @@ class _MainHomeState extends State<MainHome> {
         title: Text('Home Page'),
         actions: [NavBar()],
       ),
-      body: const Center(
-        child: Text('CTW GANG'),
+      body:  Center(
+        child: Text('CTW GANG',
+        style: Theme.of(context).textTheme.bodyLarge,),
       ),
     );
   }
