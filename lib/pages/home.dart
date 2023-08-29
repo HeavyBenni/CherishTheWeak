@@ -1,3 +1,4 @@
+import 'package:cherishtheweak/widget/navbar.dart';
 import 'package:flutter/material.dart';
 
 class MainHome extends StatefulWidget {
@@ -8,9 +9,12 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHomeState extends State<MainHome> {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
+    return Scaffold(
+      appBar: NavBar(title: 'Home Page'),
       body:  Center(
         child: Text('CTW GANG'),
       ),
