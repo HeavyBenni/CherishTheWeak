@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:cherishtheweak/pages/Band/band.dart';
 import 'package:cherishtheweak/pages/Home/home.dart';
 import 'package:fluro/fluro.dart';

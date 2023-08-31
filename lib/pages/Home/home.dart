@@ -27,7 +27,6 @@ class _MainHomeState extends State<MainHome> {
 
  @override
   Widget build(BuildContext context) {
-<<<<<<< Updated upstream
     return const Scaffold(
       drawer: CustomDrawer(),
       body: Stack(
@@ -48,15 +47,6 @@ class _MainHomeState extends State<MainHome> {
             child: NavBar(logoName: 'Cherish The Weak')), // Your custom navbar
         ],
       ),
-=======
-    return Scaffold(
-      appBar: NavBar(logoName: 'Cherish The Weak'),
-      body: Center(
-        child: Text(
-          'CTW GANG',
-          ),
-        ),
->>>>>>> Stashed changes
     );
   }
 }

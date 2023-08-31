@@ -9,14 +9,9 @@ class AppTheme {
   static const Color color5 = Colors.white;      // Pearl
   static const Color color6 = Color(0xFF333333); // Charcoal
 
-<<<<<<< Updated upstream
-  static final TextStyle bandName = GoogleFonts.metalMania(
-    fontSize: 45,
-=======
   static final TextStyle bandName = TextStyle(
     fontFamily: 'Metal',
-    fontSize: 20,
->>>>>>> Stashed changes
+    fontSize: 45,
     fontWeight: FontWeight.bold,
     color: color1,
   );
