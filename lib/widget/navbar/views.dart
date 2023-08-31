@@ -7,59 +7,62 @@ class NavDesktopView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center, children: [
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: Text(
-          'Home',
-          style: Theme.of(context).textTheme.displayLarge,
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: Text(
-          'Tour',
-          style: Theme.of(context).textTheme.displayLarge,
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: Text(
-          'Band',
-          style: Theme.of(context).textTheme.displayLarge,
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child:
-            Text(logoName, style: Theme.of(context).textTheme.displayMedium),
-      ),
-      Row(
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
-              'Media',
+              'Home',
               style: Theme.of(context).textTheme.displayLarge,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
-              'Music',
+              'Tour',
               style: Theme.of(context).textTheme.displayLarge,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
-              'Shop',
+              'Band',
               style: Theme.of(context).textTheme.displayLarge,
             ),
           ),
-        ],
-      ),
-    ]);
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Text(logoName,
+                style: Theme.of(context).textTheme.displayMedium),
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Text(
+                  'Media',
+                  style: Theme.of(context).textTheme.displayLarge,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Text(
+                  'Music',
+                  style: Theme.of(context).textTheme.displayLarge,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Text(
+                  'Shop',
+                  style: Theme.of(context).textTheme.displayLarge,
+                ),
+              ),
+            ],
+          ),
+        ]);
   }
 }
 
@@ -74,8 +77,8 @@ class NavLaptopView extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Text(logoName,
-              style: Theme.of(context).textTheme.displayMedium),
+          child:
+              Text(logoName, style: Theme.of(context).textTheme.displayMedium),
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Padding(
@@ -99,34 +102,31 @@ class NavLaptopView extends StatelessWidget {
               style: Theme.of(context).textTheme.displayLarge,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 50.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                  child: Text(
-                    'Media',
-                    style: Theme.of(context).textTheme.displayLarge,
-                  ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Text(
+                  'Media',
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                  child: Text(
-                    'Music',
-                    style: Theme.of(context).textTheme.displayLarge,
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Text(
+                  'Music',
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                  child: Text(
-                    'Shop',
-                    style: Theme.of(context).textTheme.displayLarge,
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Text(
+                  'Shop',
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ]),
       ],
@@ -141,8 +141,6 @@ class NavPhoneView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row( children: [
-      Text(logoName)
-    ]);
+    return Row(children: [Text(logoName)]);
   }
 }
