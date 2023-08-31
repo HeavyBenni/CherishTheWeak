@@ -5,6 +5,10 @@ class Tour extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      height: 500,
+      width: MediaQuery.of(context).size.width,
+      color: Colors.pink,
+    );
   }
 }

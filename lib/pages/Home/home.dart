@@ -1,3 +1,6 @@
+import 'package:cherishtheweak/pages/Tour/tour.dart';
+import 'package:cherishtheweak/widget/footer.dart';
+import 'package:cherishtheweak/widget/header.dart';
 import 'package:cherishtheweak/widget/navbar.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +18,26 @@ class _MainHomeState extends State<MainHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NavBar(title: 'Home Page'),
-      body:  Center(
-        child: Text('CTW GANG'),
+      body:  Stack(
+        children: [
+          // Background Container (Full Screen)
+          Container(
+            color: Colors.blue, // Same as Scaffold's background color
+          ),
+          // Content Widgets
+          const SingleChildScrollView(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Header(),
+                  Tour(),
+                  Footer()
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
