@@ -5,6 +5,8 @@ class Store extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      color: Colors.green,
+      child: Placeholder(),);
   }
 }
