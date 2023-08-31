@@ -9,13 +9,14 @@ class AppTheme {
   static final Color color5 = Colors.white;      // Pearl
   static final Color color6 = Color(0xFF333333); // Charcoal
 
-  static final TextStyle text1 = GoogleFonts.sedgwickAveDisplay(
-    fontSize: 24,
+  static final TextStyle bandName = GoogleFonts.metalMania(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
     color: color1,
   );
 
-  static final TextStyle text2 = GoogleFonts.sedgwickAveDisplay(
-    fontSize: 32,
+  static final TextStyle headLineLarge = GoogleFonts.lobsterTwo(
+    fontSize: 18,
     color: color2,
   );
 
@@ -49,8 +50,8 @@ class AppTheme {
     cardColor: color6,
 
     textTheme: TextTheme(
-      displayLarge: text1,
-      displayMedium: text2,
+      displayLarge: bandName,
+      displayMedium: headLineLarge,
       displaySmall: text3,
       headlineLarge: text4,
       headlineMedium: text5,

@@ -16,48 +16,48 @@ class NavDesktopView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
               'Home',
-              style: AppTheme.text2,
+              style: AppTheme.headLineLarge,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
               'Tour',
-              style: AppTheme.text2,
+              style: AppTheme.headLineLarge,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
               'Band',
-              style: AppTheme.text2,
+              style: AppTheme.headLineLarge,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Text(logoName,
-              style: AppTheme.text1)),
+              style: AppTheme.bandName)),
           Row(
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Media',
-              style: AppTheme.text2,
+              style: AppTheme.headLineLarge,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Music',
-              style: AppTheme.text2,
+              style: AppTheme.headLineLarge,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Shop',
-              style: AppTheme.text2,
+              style: AppTheme.headLineLarge,
                 ),
               ),
             ],
@@ -78,28 +78,28 @@ class NavLaptopView extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child:
-              Text(logoName, style: Theme.of(context).textTheme.displayMedium),
+              Text(logoName, style: AppTheme.bandName),
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
               'Home',
-              style: Theme.of(context).textTheme.displayLarge,
+              style: AppTheme.headLineLarge,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
               'Tour',
-              style: Theme.of(context).textTheme.displayLarge,
+              style: AppTheme.headLineLarge,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
               'Band',
-              style: Theme.of(context).textTheme.displayLarge,
+              style: AppTheme.headLineLarge,
             ),
           ),
           Row(
@@ -109,21 +109,21 @@ class NavLaptopView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Media',
-                  style: Theme.of(context).textTheme.displayLarge,
+                  style: AppTheme.headLineLarge,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Music',
-                  style: Theme.of(context).textTheme.displayLarge,
+                  style: AppTheme.headLineLarge,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Shop',
-                  style: Theme.of(context).textTheme.displayLarge,
+                  style: AppTheme.headLineLarge,
                 ),
               ),
             ],
