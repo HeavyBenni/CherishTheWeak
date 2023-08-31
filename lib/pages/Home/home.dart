@@ -1,4 +1,4 @@
-import 'package:cherishtheweak/widget/navbar.dart';
+import 'package:cherishtheweak/widget/navbar/navbar.dart';
 import 'package:flutter/material.dart';
 
 class MainHome extends StatefulWidget {
@@ -13,8 +13,8 @@ class _MainHomeState extends State<MainHome> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: NavBar(title: 'Home Page'),
+    return const Scaffold(
+      appBar: NavBar(logoName: 'Cherish The Weak'),
       body:  Center(
         child: Text('CTW GANG'),
       ),
