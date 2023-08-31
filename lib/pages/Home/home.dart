@@ -1,4 +1,6 @@
 import 'package:cherishtheweak/theme/theme.dart';
+import 'package:cherishtheweak/widget/footer.dart';
+import 'package:cherishtheweak/widget/header.dart';
 import 'package:cherishtheweak/widget/navbar/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +20,14 @@ class _MainHomeState extends State<MainHome> {
     return  Scaffold(
       appBar: NavBar(logoName: 'Cherish The Weak'),
       body:  Center(
-        child: Text('CTW GANG', style: AppTheme.headLineLarge,),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Header(),
+              Footer()
+            ],
+          ),
+        ),
       ),
     );
   }
