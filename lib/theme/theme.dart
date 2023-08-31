@@ -9,14 +9,13 @@ class AppTheme {
   static final Color color5 = Colors.white;      // Pearl
   static final Color color6 = Color(0xFF333333); // Charcoal
 
-  static final TextStyle text1 = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.bold,
+  static final TextStyle text1 = GoogleFonts.sedgwickAveDisplay(
+    fontSize: 24,
     color: color1,
   );
 
-  static final TextStyle text2 = TextStyle(
-    fontSize: 18,
+  static final TextStyle text2 = GoogleFonts.sedgwickAveDisplay(
+    fontSize: 32,
     color: color2,
   );
 

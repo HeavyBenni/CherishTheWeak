@@ -1,3 +1,4 @@
+import 'package:cherishtheweak/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class NavDesktopView extends StatelessWidget {
@@ -15,49 +16,48 @@ class NavDesktopView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
               'Home',
-              style: Theme.of(context).textTheme.displayLarge,
+              style: AppTheme.text2,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
               'Tour',
-              style: Theme.of(context).textTheme.displayLarge,
+              style: AppTheme.text2,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Text(
               'Band',
-              style: Theme.of(context).textTheme.displayLarge,
+              style: AppTheme.text2,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Text(logoName,
-                style: Theme.of(context).textTheme.displayMedium),
-          ),
+              style: AppTheme.text1)),
           Row(
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Media',
-                  style: Theme.of(context).textTheme.displayLarge,
+              style: AppTheme.text2,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Music',
-                  style: Theme.of(context).textTheme.displayLarge,
+              style: AppTheme.text2,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Shop',
-                  style: Theme.of(context).textTheme.displayLarge,
+              style: AppTheme.text2,
                 ),
               ),
             ],
