@@ -8,31 +8,39 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 10),
-      child: Row(
+    return Container(
+      color: Colors.transparent,
+      child: Column(
         children: [
-          Expanded(
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                if (constraints.maxWidth > 1000) {
-                  return const NavDesktopView(
-                    logoName: 'Cherish The Weak',
-                  );
-                } else if (constraints.maxWidth > 700) {
-                  return const Center(
-                    child: NavLaptopView(
-                      logoName: 'Cherish The Weak',
-                    ),
-                  );
-                } else {
-                  return const Center(
-                    child: NavPhoneView(
-                      logoName: 'Cherish The Weak',
-                    ),
-                  );
-                }
-              },
+    
+          Padding(
+            padding: const EdgeInsets.only(top: 9),
+            child: Row(
+              children: [
+                Expanded(
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      if (constraints.maxWidth > 1000) {
+                        return const NavDesktopView(
+                          logoName: 'Cherish The Weak',
+                        );
+                      } else if (constraints.maxWidth > 700) {
+                        return const Center(
+                          child: NavLaptopView(
+                            logoName: 'Cherish The Weak',
+                          ),
+                        );
+                      } else {
+                        return const Center(
+                          child: NavPhoneView(
+                            logoName: 'Cherish The Weak',
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],

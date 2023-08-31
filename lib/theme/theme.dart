@@ -2,40 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static final Color color1 = Color(0xFF1976D2);  // Deep Blue
-  static final Color color2 = Color(0xFFFFD700); // Goldenrod
-  static final Color color3 = Color(0xFFDC143C); // Crimson
-  static final Color color4 = Color(0xFF556B2F); // Sage Green
-  static final Color color5 = Colors.white;      // Pearl
-  static final Color color6 = Color(0xFF333333); // Charcoal
+  static const Color color1 = Color.fromRGBO(0, 0, 0, 1);  // Deep Blue
+  static const Color color2 = Color.fromARGB(255, 156, 68, 10); // Goldenrod
+  static const Color color3 = Color(0xFFDC143C); // Crimson
+  static const Color color4 = Color.fromARGB(255, 233, 205, 163); // Sage Green
+  static const Color color5 = Colors.white;      // Pearl
+  static const Color color6 = Color(0xFF333333); // Charcoal
 
   static final TextStyle bandName = GoogleFonts.metalMania(
-    fontSize: 20,
+    fontSize: 45,
     fontWeight: FontWeight.bold,
     color: color1,
   );
 
-  static final TextStyle headLineLarge = GoogleFonts.lobsterTwo(
-    fontSize: 18,
+  static final TextStyle headLineLarge = GoogleFonts.bebasNeue(
+    fontSize: 30,
     color: color2,
   );
 
-  static final TextStyle text3 = TextStyle(
+  static const TextStyle text3 = TextStyle(
     fontSize: 16,
     color: color3,
   );
 
-  static final TextStyle text4 = TextStyle(
+  static const TextStyle text4 = TextStyle(
     fontSize: 14,
     color: color4,
   );
 
-  static final TextStyle text5 = TextStyle(
+  static const TextStyle text5 = TextStyle(
     fontSize: 12,
     color: color5,
   );
 
-  static final TextStyle text6 = TextStyle(
+  static const TextStyle text6 = TextStyle(
     fontSize: 10,
     color: color6,
   );

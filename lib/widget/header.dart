@@ -1,4 +1,3 @@
-import 'package:cherishtheweak/pages/Media/media.dart';
 import 'package:cherishtheweak/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +9,7 @@ class Header extends StatelessWidget {
     return  Container(
       height: 500,
       width: MediaQuery.of(context).size.width,
-      color: AppTheme.color2,
+      color: AppTheme.color4,
     );
   }
 }
