@@ -1,3 +1,5 @@
+import 'package:cherishtheweak/pages/Band/band.dart';
+import 'package:cherishtheweak/pages/Tour/tour.dart';
 import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
 import 'package:cherishtheweak/widget/footer.dart';
@@ -12,6 +14,8 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHomeState extends State<MainHome> {
+  ScrollController _controller = ScrollController();
+
   double opacity = 0.0; // Initial opacity value
 
   @override
@@ -25,30 +29,35 @@ class _MainHomeState extends State<MainHome> {
     });
   }
 
- @override
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       drawer: CustomDrawer(),
       body: Stack(
         children: [
           SingleChildScrollView(
-            child: Column(
-              children: [
+              child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: ListView(
+              controller: _controller,
+              children: const <Widget>[
                 Header(),
+                Tour(),
+                Band(),
                 Footer(),
                 // ... other content
               ],
             ),
-          ),
+          )),
           Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: NavBar(logoName: 'Cherish The Weak')), // Your custom navbar
+              top: 0,
+              left: 0,
+              right: 0,
+              child:
+                  NavBar(logoName: 'Cherish The Weak')), // Your custom navbar
         ],
       ),
     );
   }
 }
-
-

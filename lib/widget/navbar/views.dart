@@ -14,14 +14,14 @@ class NavDesktopView extends StatelessWidget {
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
-            child: Home(buttonText: 'Home'),
+            child: HomeButton(buttonText: 'Home'),
           ),
           const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Tour(buttonText: 'Tour')),
+              child: TourButton(buttonText: 'Tour')),
           const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Band(buttonText: 'Band')),
+              child: BandButton(buttonText: 'Band')),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(logoName, style: AppTheme.bandName)),
@@ -29,13 +29,13 @@ class NavDesktopView extends StatelessWidget {
             children: [
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: Media(buttonText: 'Media')),
+                  child: MediaButton(buttonText: 'Media')),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: Music(buttonText: 'Music')),
+                  child: MusicButton(buttonText: 'Music')),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: Store(buttonText: 'Store')),
+                  child: StoreButton(buttonText: 'Store')),
             ],
           ),
         ]);
@@ -58,26 +58,26 @@ class NavLaptopView extends StatelessWidget {
         const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
-            child: Home(buttonText: 'Home'),
+            child: HomeButton(buttonText: 'Home'),
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Tour(buttonText: 'Tour')),
+              child: TourButton(buttonText: 'Tour')),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Band(buttonText: 'Band')),
+              child: BandButton(buttonText: 'Band')),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: Media(buttonText: 'Media')),
+                  child: MediaButton(buttonText: 'Media')),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: Music(buttonText: 'Music')),
+                  child: MusicButton(buttonText: 'Music')),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: Store(buttonText: 'Store')),
+                  child: StoreButton(buttonText: 'Store')),
             ],
           ),
         ]),
@@ -123,23 +123,23 @@ class CustomDrawer extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
-            child: Home(buttonText: 'Home'),
+            child: HomeButton(buttonText: 'Home'),
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Tour(buttonText: 'Tour')),
+              child: TourButton(buttonText: 'Tour')),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Band(buttonText: 'Band')),
+              child: BandButton(buttonText: 'Band')),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Media(buttonText: 'Media')),
+              child: MediaButton(buttonText: 'Media')),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Music(buttonText: 'Music')),
+              child: MusicButton(buttonText: 'Music')),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Store(buttonText: 'Store')),
+              child: StoreButton(buttonText: 'Store')),
           // ... other drawer items
         ],
       ),
@@ -160,10 +160,10 @@ ButtonStyle navBarButtonStyle() {
 }
 
 // Custom NavBar Buttons
-class Home extends StatelessWidget {
+class HomeButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
 
-  const Home({
+  const HomeButton({
     required this.buttonText, // Make the button text a required parameter
     Key? key,
   }) : super(key: key);
@@ -183,10 +183,10 @@ class Home extends StatelessWidget {
   }
 }
 
-class Tour extends StatelessWidget {
+class TourButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
 
-  const Tour({
+  const TourButton({
     required this.buttonText, // Make the button text a required parameter
     Key? key,
   }) : super(key: key);
@@ -206,10 +206,10 @@ class Tour extends StatelessWidget {
   }
 }
 
-class Band extends StatelessWidget {
+class BandButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
 
-  const Band({
+  const BandButton({
     required this.buttonText, // Make the button text a required parameter
     Key? key,
   }) : super(key: key);
@@ -229,10 +229,10 @@ class Band extends StatelessWidget {
   }
 }
 
-class Media extends StatelessWidget {
+class MediaButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
 
-  const Media({
+  const MediaButton({
     required this.buttonText, // Make the button text a required parameter
     Key? key,
   }) : super(key: key);
@@ -252,10 +252,10 @@ class Media extends StatelessWidget {
   }
 }
 
-class Music extends StatelessWidget {
+class MusicButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
 
-  const Music({
+  const MusicButton({
     required this.buttonText, // Make the button text a required parameter
     Key? key,
   }) : super(key: key);
@@ -275,10 +275,10 @@ class Music extends StatelessWidget {
   }
 }
 
-class Store extends StatelessWidget {
+class StoreButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
 
-  const Store({
+  const StoreButton({
     required this.buttonText, // Make the button text a required parameter
     Key? key,
   }) : super(key: key);
