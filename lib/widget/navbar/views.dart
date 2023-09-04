@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 class NavDesktopView extends StatelessWidget {
   final String logoName;
+  var tourFunction;
 
-  const NavDesktopView({super.key, required this.logoName});
+  NavDesktopView(
+      {super.key, required this.logoName, required this.tourFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +18,12 @@ class NavDesktopView extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 0),
             child: HomeButton(buttonText: 'Home'),
           ),
-          const Padding(
+          Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: TourButton(buttonText: 'Tour')),
+              child: Tour(
+                buttonText: 'Tour',
+                tourF: tourFunction,
+              )),
           const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: BandButton(buttonText: 'Band')),
@@ -55,14 +60,17 @@ class NavLaptopView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Text(logoName, style: AppTheme.bandName),
         ),
-        const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
             child: HomeButton(buttonText: 'Home'),
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: TourButton(buttonText: 'Tour')),
+              child: Tour(
+                buttonText: 'Tour',
+                tourF: null,
+              )),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: BandButton(buttonText: 'Band')),
@@ -117,7 +125,7 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Drawer(
+    return Drawer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -127,7 +135,10 @@ class CustomDrawer extends StatelessWidget {
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: TourButton(buttonText: 'Tour')),
+              child: Tour(
+                buttonText: 'Tour',
+                tourF: null,
+              )),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: BandButton(buttonText: 'Band')),
@@ -183,11 +194,14 @@ class HomeButton extends StatelessWidget {
   }
 }
 
-class TourButton extends StatelessWidget {
-  final String buttonText; // Add a required field for the button text
+class Tour extends StatelessWidget {
+  final String buttonText;
+  var tourF;
+  // Add a required field for the button text
 
-  const TourButton({
-    required this.buttonText, // Make the button text a required parameter
+  Tour({
+    required this.buttonText,
+    required this.tourF, // Make the button text a required parameter
     Key? key,
   }) : super(key: key);
 
@@ -195,7 +209,7 @@ class TourButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        // Your onPressed logic
+        tourF();
       },
       style: navBarButtonStyle(),
       child: Text(
