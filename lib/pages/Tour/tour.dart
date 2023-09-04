@@ -1,18 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class TourList extends StatefulWidget {
-  const TourList({Key? key}) : super(key: key);
+class Tour extends StatefulWidget {
+  const Tour({Key? key}) : super(key: key);
 
   @override
   _TourListState createState() => _TourListState();
 }
 
-class _TourListState extends State<TourList> {
+class _TourListState extends State<Tour> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection('Tour').snapshots(),
+      stream: FirebaseFirestore.instance.collection('Tour').doc('pzdt2q7AqngEEfrAVpBP').snapshots() as 
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator();
