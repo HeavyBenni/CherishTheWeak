@@ -1,13 +1,9 @@
 import 'package:cherishtheweak/theme/theme.dart';
-import 'package:cherishtheweak/pages/Band/band.dart';
-import 'package:cherishtheweak/pages/Tour/tour.dart';
 import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
 import 'package:cherishtheweak/widget/footer.dart';
 import 'package:cherishtheweak/widget/header.dart';
 import 'package:cherishtheweak/widget/navbar/navbar.dart';
-// Import ffi only for non-web platforms
-import 'dart:ffi' if (dart.library.ffi) 'package:ffi/ffi.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({Key? key}) : super(key: key);
@@ -17,8 +13,6 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHomeState extends State<MainHome> {
-  ScrollController _controller = ScrollController();
-
   double opacity = 0.0; // Initial opacity value
 
   // DataKeys for Scroll Function on Click
