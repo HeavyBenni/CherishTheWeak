@@ -1,4 +1,6 @@
 import 'package:cherishtheweak/theme/theme.dart';
+import 'package:cherishtheweak/pages/Band/band.dart';
+import 'package:cherishtheweak/pages/Tour/tour.dart';
 import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
 import 'package:cherishtheweak/widget/footer.dart';
@@ -15,6 +17,8 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHomeState extends State<MainHome> {
+  ScrollController _controller = ScrollController();
+
   double opacity = 0.0; // Initial opacity value
 
   // DataKeys for Scroll Function on Click
@@ -82,7 +86,7 @@ class _MainHomeState extends State<MainHome> {
               right: 0,
               child: NavBar(
                 logoName: 'Cherish The Weak',
-                tourbtn: tourbtn,
+                tourbtn: null,
               )), // Your custom navbar
         ],
       ),

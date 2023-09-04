@@ -6,7 +6,8 @@ class Band extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
-      child: Placeholder(),);
-  }
-}
+      height: 500,
+      width: MediaQuery.of(context).size.width,
+      color: Colors.amber,
+    );
+}}
