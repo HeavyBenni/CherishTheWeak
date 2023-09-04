@@ -20,7 +20,7 @@ class NavDesktopView extends StatelessWidget {
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Tour(
+              child: TourButton(
                 buttonText: 'Tour',
                 tourF: tourFunction,
               )),
@@ -67,7 +67,7 @@ class NavLaptopView extends StatelessWidget {
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Tour(
+              child: TourButton(
                 buttonText: 'Tour',
                 tourF: null,
               )),
@@ -135,7 +135,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: Tour(
+              child: TourButton(
                 buttonText: 'Tour',
                 tourF: null,
               )),
@@ -194,12 +194,12 @@ class HomeButton extends StatelessWidget {
   }
 }
 
-class Tour extends StatelessWidget {
+class TourButton extends StatelessWidget {
   final String buttonText;
   var tourF;
   // Add a required field for the button text
 
-  Tour({
+  TourButton({
     required this.buttonText,
     required this.tourF, // Make the button text a required parameter
     Key? key,

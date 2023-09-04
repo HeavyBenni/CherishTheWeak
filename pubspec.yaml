@@ -39,6 +39,7 @@ dependencies:
   fluro: ^2.0.5
   cloud_firestore: ^4.9.1
   firebase_core: ^2.15.1
+  flutterfire_cli: ^0.1.1+2
 
 dev_dependencies:
   flutter_test:

@@ -1,20 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class Tour extends StatefulWidget {
-  const Tour({super.key});
+class TourList extends StatefulWidget {
+  const TourList({Key? key}) : super(key: key);
 
   @override
-  State<Tour> createState() => _TourState();
+  _TourListState createState() => _TourListState();
 }
 
-class _TourState extends State<Tour> {
+class _TourListState extends State<TourList> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.amber,
-    ); /*Expanded(
-      child: StreamBuilder(stream: FirebaseFirestore.instance.collection('Tour').doc('pzdt2q7AqngEEfrAVpBP').snapshots(), builder: (context, snapshot) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: FirebaseFirestore.instance.collection('Tour').snapshots(),
+      builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator();
         }
@@ -23,17 +22,29 @@ class _TourState extends State<Tour> {
           return Text('Error: ${snapshot.error}');
         }
 
-        if (!snapshot.hasData || !snapshot.data!.exists) {
-          return Text('Document does not exist');
-        }
-        
-        final data = snapshot.data!.data() as Map<String, dynamic>;
-        final name = data['Name'] as String;
+        final tours = snapshot.data!.docs;
 
-        return Text(name);
-      })
+        return ListView.builder(
+          itemCount: tours.length,
+          itemBuilder: (context, index) {
+            final tourData = tours[index].data() as Map<String, dynamic>;
+            final name = tourData['Name'] as String;
+            final location = tourData['Location'] as String;
+            final link = tourData['Link - TIcketMaster'] as String;
+            final dateStart = tourData['Date-start'] as String;
+            final dateEnd = tourData['Date-end'] as String;
+            final country = tourData['Country'] as String;
+
+            return ListTile(
+              title: Text(name),
+              subtitle: Text('Location: $location'),
+              onTap: () {
+                // Handle onTap action here, e.g., navigate to a detail screen.
+              },
+            );
+          },
+        );
+      },
     );
   }
 }
-*/
-  }}

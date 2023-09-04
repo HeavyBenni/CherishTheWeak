@@ -1,3 +1,4 @@
+import 'package:cherishtheweak/pages/Tour/tour.dart';
 import 'package:cherishtheweak/theme/theme.dart';
 import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
@@ -53,11 +54,7 @@ class _MainHomeState extends State<MainHome> {
                 // Tour
                 Card(
                   key: tourKey,
-                  child: Container(
-                    height: 500,
-                    width: 500,
-                    color: AppTheme.color6,
-                  ),
+                  child: Tour()
                 ),
                 // Band
                 Card(),

@@ -1,12 +1,20 @@
-import 'package:cherishtheweak/pages/Home/home.dart';
 import 'package:cherishtheweak/theme/theme.dart';
 import 'package:cherishtheweak/widget/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'firebase_options.dart';
 
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  try {
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  } catch (e) {
+    print('Error: $e');
+  }
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
