@@ -1,3 +1,4 @@
+import 'package:cherishtheweak/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {
@@ -8,7 +9,13 @@ class Footer extends StatelessWidget {
     return Container(
       height: 500,
       width: MediaQuery.of(context).size.width,
-      color: Colors.blue,
+      color: Colors.black,
+      child: Column(children: [
+        Text(
+          ' - Footer - ',
+          style: AppTheme.text3,
+        )
+      ]),
     );
   }
 }

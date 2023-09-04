@@ -107,7 +107,10 @@ class NavPhoneView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
-            icon: const Icon(Icons.menu),
+            icon: const Icon(
+              Icons.menu,
+              color: AppTheme.color2,
+            ),
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },

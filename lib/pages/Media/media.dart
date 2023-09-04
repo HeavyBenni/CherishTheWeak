@@ -1,3 +1,4 @@
+import 'package:cherishtheweak/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class Media extends StatelessWidget {
@@ -6,7 +7,15 @@ class Media extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.amber,
-      child: Placeholder(),);
+      height: 500,
+      width: MediaQuery.of(context).size.width,
+      color: Colors.black,
+      child: Column(children: [
+        Text(
+          ' - Media - ',
+          style: AppTheme.text3,
+        )
+      ]),
+    );
   }
 }

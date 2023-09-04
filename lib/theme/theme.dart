@@ -2,34 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static const Color color1 = Color.fromRGBO(0, 0, 0, 1);  // Deep Blue
-  static const Color color2 = Color.fromARGB(255, 156, 68, 10); // Goldenrod
+  static const Color color1 = Color.fromRGBO(255, 255, 255, 1); // Deep Blue
+  static const Color color2 = Color.fromARGB(255, 255, 221, 175); // Goldenrod
   static const Color color3 = Color(0xFFDC143C); // Crimson
   static const Color color4 = Color.fromARGB(255, 233, 205, 163); // Sage Green
-  static const Color color5 = Colors.white;      // Pearl
+  static const Color color5 = Colors.white; // Pearl
   static const Color color6 = Color(0xFF333333); // Charcoal
 
-  static  TextStyle bandName = const TextStyle(
+  static TextStyle bandName = const TextStyle(
     fontFamily: 'Metal',
     fontSize: 45,
     fontWeight: FontWeight.bold,
-    color: color1,
+    color: color2,
   );
 
-  static  TextStyle headLineLarge = const TextStyle(
+  static TextStyle headLineLarge = const TextStyle(
     fontFamily: 'BebasNeue',
     fontSize: 30,
     color: color1,
   );
 
-  static const TextStyle text3 = TextStyle(
-    fontSize: 16,
-    color: color3,
+  static TextStyle text3 = GoogleFonts.medievalSharp(
+    fontSize: 40,
+    color: color2,
   );
 
   static const TextStyle text4 = TextStyle(
-    fontSize: 14,
-    color: color4,
+    fontSize: 25,
+    color: color2,
   );
 
   static const TextStyle text5 = TextStyle(
@@ -50,7 +50,6 @@ class AppTheme {
     hintColor: color4,
     shadowColor: color5,
     cardColor: color6,
-
     textTheme: TextTheme(
       displayLarge: bandName,
       displayMedium: headLineLarge,
@@ -60,5 +59,4 @@ class AppTheme {
       headlineSmall: text6,
     ),
   );
-
 }

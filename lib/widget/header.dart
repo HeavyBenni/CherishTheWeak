@@ -6,10 +6,10 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      height: 500,
+    return Container(
+      height: 5000,
       width: MediaQuery.of(context).size.width,
-      color: AppTheme.color4,
+      color: Color.fromARGB(0, 197, 51, 51),
     );
   }
 }

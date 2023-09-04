@@ -1,3 +1,6 @@
+import 'package:cherishtheweak/pages/Band/band.dart';
+import 'package:cherishtheweak/pages/Discography/discography.dart';
+import 'package:cherishtheweak/pages/Media/media.dart';
 import 'package:cherishtheweak/theme/theme.dart';
 import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
@@ -49,24 +52,63 @@ class _MainHomeState extends State<MainHome> {
           SingleChildScrollView(
             child: Column(
               children: [
-                Card(key: homeKey, child: const Header()),
+                // Background Image with Gradient
+                Stack(
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      child: Image.asset(
+                        'lib/assets/images/ctwgig.jpg',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Positioned.fill(
+                      bottom:
+                          0, // Adjust this value to control the gradient's height
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                            colors: [
+                              Colors.black
+                                  .withOpacity(0.9), // Semi-transparent black
+                              Colors.transparent, // Fully transparent
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Card(
+                  key: homeKey,
+                ),
                 // Tour
                 Card(
                   key: tourKey,
-                  child: Container(
-                    height: 500,
-                    width: 500,
-                    color: AppTheme.color6,
-                  ),
                 ),
                 // Band
-                Card(),
+                Card(
+                  key: bandKey,
+                  margin: EdgeInsets.zero,
+                  child: Band(),
+                ),
                 // Media
-                Card(),
+                Card(
+                  margin: EdgeInsets.zero,
+                  child: Media(),
+                ),
                 // Music
-                Card(),
+                Card(
+                  margin: EdgeInsets.zero,
+                  child: Discography(),
+                ),
                 // Store
-                Card(),
+                Card(
+                  margin: EdgeInsets.zero,
+                ),
 
                 const Footer(),
 
@@ -75,13 +117,14 @@ class _MainHomeState extends State<MainHome> {
             ),
           ),
           Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: NavBar(
-                logoName: 'Cherish The Weak',
-                tourbtn: null,
-              )), // Your custom navbar
+            top: 0,
+            left: 0,
+            right: 0,
+            child: NavBar(
+              logoName: 'Cherish The Weak',
+              tourbtn: null,
+            ),
+          ),
         ],
       ),
     );
