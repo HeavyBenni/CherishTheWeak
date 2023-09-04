@@ -28,8 +28,8 @@ class AppTheme {
   );
 
   static const TextStyle text4 = TextStyle(
-    fontSize: 25,
-    color: color2,
+    fontSize: 32,
+    color: color1,
   );
 
   static const TextStyle text5 = TextStyle(
