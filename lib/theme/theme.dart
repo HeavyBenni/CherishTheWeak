@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const Color color1 = Color.fromRGBO(0, 0, 0, 1);  // Deep Blue
