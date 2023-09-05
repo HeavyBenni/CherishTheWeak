@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
+
 import 'package:cherishtheweak/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +29,7 @@ class _NavDesktopViewState extends State<NavDesktopView>
     // Create an animation controller
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 3000), // Adjust duration as needed
+      duration: const Duration(milliseconds: 3000), // Adjust duration as needed
     );
 
     // Create an opacity animation
@@ -51,8 +53,8 @@ class _NavDesktopViewState extends State<NavDesktopView>
           builder: (context, child) {
             return Opacity(
               opacity: _opacityAnimation.value, // Use the animation value
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 0),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 0),
                 child: HomeButton(buttonText: 'Home'),
               ),
             );
@@ -78,8 +80,8 @@ class _NavDesktopViewState extends State<NavDesktopView>
           builder: (context, child) {
             return Opacity(
               opacity: _opacityAnimation.value, // Use the animation value
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 0),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 0),
                 child: HomeButton(buttonText: 'Band'),
               ),
             );
@@ -96,8 +98,8 @@ class _NavDesktopViewState extends State<NavDesktopView>
               builder: (context, child) {
                 return Opacity(
                   opacity: _opacityAnimation.value, // Use the animation value
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 0),
                     child: HomeButton(buttonText: 'Media'),
                   ),
                 );
@@ -108,8 +110,8 @@ class _NavDesktopViewState extends State<NavDesktopView>
               builder: (context, child) {
                 return Opacity(
                   opacity: _opacityAnimation.value, // Use the animation value
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 0),
                     child: HomeButton(buttonText: 'Music'),
                   ),
                 );
@@ -120,8 +122,8 @@ class _NavDesktopViewState extends State<NavDesktopView>
               builder: (context, child) {
                 return Opacity(
                   opacity: _opacityAnimation.value, // Use the animation value
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 0),
                     child: HomeButton(buttonText: 'Store'),
                   ),
                 );
@@ -148,20 +150,20 @@ class NavLaptopView extends StatelessWidget {
           child: Text(logoName, style: AppTheme.bandName),
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
             child: HomeButton(buttonText: 'Home'),
           ),
           Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 0),
               child: TourButton(
                 buttonText: 'Tour',
                 tourF: null,
               )),
-          Padding(
+          const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: BandButton(buttonText: 'Band')),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
@@ -219,26 +221,26 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
             child: HomeButton(buttonText: 'Home'),
           ),
           Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 0),
               child: TourButton(
                 buttonText: 'Tour',
                 tourF: null,
               )),
-          Padding(
+          const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: BandButton(buttonText: 'Band')),
-          Padding(
+          const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: MediaButton(buttonText: 'Media')),
-          Padding(
+          const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: MusicButton(buttonText: 'Music')),
-          Padding(
+          const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: StoreButton(buttonText: 'Store')),
           // ... other drawer items

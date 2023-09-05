@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 import 'package:cherishtheweak/theme/theme.dart';
 import 'package:cherishtheweak/widget/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -10,7 +12,6 @@ Future<void> main() async {
   try {
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   } catch (e) {
-    print('Error: $e');
   }
   runApp(const MyApp());
 }

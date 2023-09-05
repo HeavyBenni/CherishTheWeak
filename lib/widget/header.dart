@@ -1,4 +1,3 @@
-import 'package:cherishtheweak/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
@@ -9,7 +8,7 @@ class Header extends StatelessWidget {
     return Container(
       height: 5000,
       width: MediaQuery.of(context).size.width,
-      color: Color.fromARGB(0, 197, 51, 51),
+      color: const Color.fromARGB(0, 197, 51, 51),
     );
   }
 }

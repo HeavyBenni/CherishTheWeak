@@ -2,11 +2,9 @@ import 'package:cherishtheweak/pages/Band/band.dart';
 import 'package:cherishtheweak/pages/Discography/discography.dart';
 import 'package:cherishtheweak/pages/Media/media.dart';
 import 'package:cherishtheweak/pages/Tour/tour.dart';
-import 'package:cherishtheweak/theme/theme.dart';
 import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
 import 'package:cherishtheweak/widget/footer.dart';
-import 'package:cherishtheweak/widget/header.dart';
 import 'package:cherishtheweak/widget/navbar/navbar.dart';
 
 class MainHome extends StatefulWidget {
@@ -56,7 +54,7 @@ class _MainHomeState extends State<MainHome> {
                 // Background Image with Gradient
                 Stack(
                   children: [
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
                       child: Image.asset(
@@ -90,7 +88,7 @@ class _MainHomeState extends State<MainHome> {
                     key: tourKey,
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.5,
-                      child: Tour(
+                      child: const Tour(
                       ),
                     )
                   ),
@@ -99,20 +97,20 @@ class _MainHomeState extends State<MainHome> {
                 Card(
                   key: bandKey,
                   margin: EdgeInsets.zero,
-                  child: Band(),
+                  child: const Band(),
                 ),
                 // Media
-                Card(
+                const Card(
                   margin: EdgeInsets.zero,
                   child: Media(),
                 ),
                 // Music
-                Card(
+                const Card(
                   margin: EdgeInsets.zero,
                   child: Discography(),
                 ),
                 // Store
-                Card(
+                const Card(
                   margin: EdgeInsets.zero,
                 ),
 

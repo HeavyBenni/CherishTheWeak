@@ -7,6 +7,6 @@ class Store extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.green,
-      child: Placeholder(),);
+      child: const Placeholder(),);
   }
 }

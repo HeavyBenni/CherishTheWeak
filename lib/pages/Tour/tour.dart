@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, deprecated_member_use
+
 import 'package:cherishtheweak/theme/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +44,7 @@ class _TourState extends State<Tour> {
                 }
 
                 if (!snapshot.hasData) {
-                  return Text('No data available');
+                  return const Text('No data available');
                 }
 
                 final tours = snapshot.data!.docs;
@@ -62,7 +64,6 @@ class _TourState extends State<Tour> {
 
                     final dateStartFormat = DateFormat('d ');
                     final dateEndFormat = DateFormat('d MMM');
-                    print('Number of tours: ${tours.length}');
 
                     return Column(
                       children: [
@@ -82,7 +83,7 @@ class _TourState extends State<Tour> {
                                 style: AppTheme.tourInfo,
                               ),
                               Text(
-                                'Location: $country, $location',
+                                'Location: $location, $country',
                                 style: AppTheme.tourInfo,
                               ),
                             ],
@@ -95,21 +96,19 @@ class _TourState extends State<Tour> {
                                 onPressed: () => _launchUrl(reminderLink),
                                   // 
                                 style: ElevatedButton.styleFrom(
-                                  primary: Colors.white,
-                                  onPrimary: Colors.black,
+                                  foregroundColor: Colors.black, backgroundColor: Colors.white,
                                 ),
-                                child: Text('Set a Reminder'),
+                                child: const Text('Set a Reminder'),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                   width: 10), // Space between the two buttons
                               OutlinedButton(
                                 onPressed: () => _launchUrl(link),
                                 style: OutlinedButton.styleFrom(
-                                  side: BorderSide(color: Colors.white),
-                                  primary: Colors.white,
+                                  foregroundColor: Colors.white, side: const BorderSide(color: Colors.white),
                                   backgroundColor: Colors.black,
                                 ),
-                                child: Text('Buy Ticket'),
+                                child: const Text('Buy Ticket'),
                               ),
                             ],
                           ),
@@ -118,7 +117,7 @@ class _TourState extends State<Tour> {
                             padding: EdgeInsets.symmetric(
                                 horizontal:
                                     MediaQuery.of(context).size.width * 0.20),
-                            child: Divider(
+                            child: const Divider(
                                 color: Colors.white)) // This is the separator
                       ],
                     );

@@ -7,6 +7,6 @@ class News extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.orange,
-      child: Placeholder(),);
+      child: const Placeholder(),);
   }
 }
