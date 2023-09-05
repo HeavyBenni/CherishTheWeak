@@ -26,7 +26,6 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                     builder: (context, constraints) {
                       if (constraints.maxWidth > 1000) {
                         return NavDesktopView(
-                          shouldFadeIn: true,
                           logoName: 'Cherish The Weak',
                           tourFunction: tourbtn,
                         );

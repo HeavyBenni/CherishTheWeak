@@ -1,29 +1,43 @@
 import 'package:cherishtheweak/theme/theme.dart';
 import 'package:flutter/material.dart';
 
-class NavDesktopView extends StatelessWidget {
+class NavDesktopView extends StatefulWidget {
   final String logoName;
-  final bool shouldFadeIn; // Use a bool to control the fading effect
   var tourFunction;
 
   NavDesktopView({
     Key? key,
     required this.logoName,
     required this.tourFunction,
-    required this.shouldFadeIn,
   }) : super(key: key);
 
-  // Define a function to create a faded-in widget
-  Widget _fadeIf(bool condition, Widget child) {
-    return shouldFadeIn
-        ? AnimatedOpacity(
-            opacity: condition ? 1.0 : 0.0,
-            duration: const Duration(
-                milliseconds:
-                    10000000000000000), // Adjust the duration as needed
-            child: child,
-          )
-        : child;
+  @override
+  State<NavDesktopView> createState() => _NavDesktopViewState();
+}
+
+class _NavDesktopViewState extends State<NavDesktopView>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _opacityAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Create an animation controller
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 3000), // Adjust duration as needed
+    );
+
+    // Create an opacity animation
+    _opacityAnimation = Tween<double>(
+      begin: 0.0, // Start with fully transparent
+      end: 1.0, // End with fully opaque
+    ).animate(_controller);
+
+    // Start the animation
+    _controller.forward();
   }
 
   @override
@@ -32,49 +46,89 @@ class NavDesktopView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _fadeIf(
-            true,
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0),
-              child: HomeButton(buttonText: 'Home'),
-            )),
-        _fadeIf(
-            true,
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
-              child: TourButton(
-                buttonText: 'Tour',
-                tourF: tourFunction,
+        AnimatedBuilder(
+          animation: _opacityAnimation,
+          builder: (context, child) {
+            return Opacity(
+              opacity: _opacityAnimation.value, // Use the animation value
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 0),
+                child: HomeButton(buttonText: 'Home'),
               ),
-            )),
-        _fadeIf(
-            true,
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0),
-              child: BandButton(buttonText: 'Band'),
-            )),
+            );
+          },
+        ),
+        AnimatedBuilder(
+          animation: _opacityAnimation,
+          builder: (context, child) {
+            return Opacity(
+              opacity: _opacityAnimation.value,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 0),
+                child: TourButton(
+                  buttonText: 'Tour',
+                  tourF: widget.tourFunction,
+                ),
+              ),
+            );
+          },
+        ),
+        AnimatedBuilder(
+          animation: _opacityAnimation,
+          builder: (context, child) {
+            return Opacity(
+              opacity: _opacityAnimation.value, // Use the animation value
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 0),
+                child: HomeButton(buttonText: 'Band'),
+              ),
+            );
+          },
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: Text(logoName, style: AppTheme.bandName),
+          child: Text(widget.logoName, style: AppTheme.bandName),
         ),
-        _fadeIf(
-            true,
-            const Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: MediaButton(buttonText: 'Media'),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: MusicButton(buttonText: 'Music'),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: StoreButton(buttonText: 'Store'),
-                ),
-              ],
-            )),
+        Row(
+          children: [
+            AnimatedBuilder(
+              animation: _opacityAnimation,
+              builder: (context, child) {
+                return Opacity(
+                  opacity: _opacityAnimation.value, // Use the animation value
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                    child: HomeButton(buttonText: 'Media'),
+                  ),
+                );
+              },
+            ),
+            AnimatedBuilder(
+              animation: _opacityAnimation,
+              builder: (context, child) {
+                return Opacity(
+                  opacity: _opacityAnimation.value, // Use the animation value
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                    child: HomeButton(buttonText: 'Music'),
+                  ),
+                );
+              },
+            ),
+            AnimatedBuilder(
+              animation: _opacityAnimation,
+              builder: (context, child) {
+                return Opacity(
+                  opacity: _opacityAnimation.value, // Use the animation value
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                    child: HomeButton(buttonText: 'Store'),
+                  ),
+                );
+              },
+            ),
+          ],
+        )
       ],
     );
   }
