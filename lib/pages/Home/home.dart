@@ -84,11 +84,16 @@ class _MainHomeState extends State<MainHome> {
                   ],
                 ),
                 // Tour
-                Card(
-                  margin: EdgeInsets.zero,
-                  key: tourKey,
-                  child: Tour(
-                  )
+                SafeArea(
+                  child: Card(
+                    margin: EdgeInsets.zero,
+                    key: tourKey,
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.5,
+                      child: Tour(
+                      ),
+                    )
+                  ),
                 ),
                 // Band
                 Card(

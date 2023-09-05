@@ -27,13 +27,14 @@ class AppTheme {
     color: color2,
   );
 
-  static const TextStyle text4 = TextStyle(
-    fontSize: 32,
+  static const TextStyle tourDate = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
     color: color1,
   );
 
-  static const TextStyle text5 = TextStyle(
-    fontSize: 12,
+  static const TextStyle tourInfo = TextStyle(
+    fontSize: 14,
     color: color5,
   );
 
@@ -54,8 +55,8 @@ class AppTheme {
       displayLarge: bandName,
       displayMedium: headLineLarge,
       displaySmall: text3,
-      headlineLarge: text4,
-      headlineMedium: text5,
+      headlineLarge: tourDate,
+      headlineMedium: tourInfo,
       headlineSmall: text6,
     ),
   );

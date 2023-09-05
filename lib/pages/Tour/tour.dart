@@ -2,6 +2,7 @@ import 'package:cherishtheweak/theme/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Tour extends StatefulWidget {
   const Tour({Key? key}) : super(key: key);
@@ -11,6 +12,8 @@ class Tour extends StatefulWidget {
 }
 
 class _TourState extends State<Tour> {
+  final reminderUrl = 'https://chatgptplus.blog/gpt-4-image-input/';
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,91 +22,121 @@ class _TourState extends State<Tour> {
       child: Column(
         children: [
           Center(
-              child: Text(
-            '- Tour -',
-            style: AppTheme.text3,
-          )),
-          StreamBuilder<DocumentSnapshot>(
-            stream: FirebaseFirestore.instance
-                .collection('Tour')
-                .doc('pzdt2q7AqngEEfrAVpBP')
-                .snapshots(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
-              }
+            child: Text(
+              '- Tours -',
+              style: AppTheme.text3,
+            ),
+          ),
+          Expanded(
+            child: StreamBuilder<QuerySnapshot>(
+              stream: FirebaseFirestore.instance.collection('Tour').snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator(
+                    color: Colors.green,
+                  );
+                }
 
-              if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
-              }
+                if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                }
 
-              if (!snapshot.hasData || !snapshot.data!.exists) {
-                return Text('No data available');
-              }
+                if (!snapshot.hasData) {
+                  return Text('No data available');
+                }
 
-              final tourData = snapshot.data!.data() as Map<String, dynamic>;
-              final name = tourData['Name'] as String;
-              final location = tourData['Location'] as String;
-              final link = tourData['Link - TicketMaster'] as String;
-              final dateStart = tourData['Date-start'] as Timestamp;
-              final dateEnd = tourData['Date-end'] as Timestamp;
-              final country = tourData['Country'] as String;
+                final tours = snapshot.data!.docs;
 
-              final dateStartFormat = DateFormat('d ');
-              final dateEndFormat = DateFormat('d MMM');
+                return ListView.builder(
+                  itemCount: tours.length,
+                  itemBuilder: (context, index) {
+                    final tourData =
+                        tours[index].data() as Map<String, dynamic>;
+                    final name = tourData['Name'] as String;
+                    final location = tourData['Location'] as String;
+                    final dateStart = tourData['Date-start'] as Timestamp;
+                    final dateEnd = tourData['Date-end'] as Timestamp;
+                    final country = tourData['Country'] as String;
+                    final link = tourData['Link - TicketMaster'] as String;
+                    final reminderLink = reminderUrl;
 
-              return ListTile(
-                title: Text(
-                  name,
-                  style: AppTheme.bandName, // Customize the headline style
-                ),
-                subtitle: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
+                    final dateStartFormat = DateFormat('d ');
+                    final dateEndFormat = DateFormat('d MMM');
+                    print('Number of tours: ${tours.length}');
+
+                    return Column(
+                      children: [
+                        ListTile(
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal:
+                                  MediaQuery.of(context).size.width * 0.20),
+                          title: Text(
                             'Date: ${dateStartFormat.format(dateStart.toDate())}- ${dateEndFormat.format(dateEnd.toDate())}',
-                            style: AppTheme.text4,
+                            style: AppTheme.tourDate,
                           ),
-                          Text(
-                            'Location: $country, $location',
-                            style: AppTheme.text4,
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                name,
+                                style: AppTheme.tourInfo,
+                              ),
+                              Text(
+                                'Location: $country, $location',
+                                style: AppTheme.tourInfo,
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 60, right: 20),
-                      child: Container(width: 300,
-                        height: 100,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Handle buying tickets action here
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green, // Customize button color
-                          ),
-                          child: Text(
-                            'Buy Tickets',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize
+                                .min, // Ensure the row takes up minimal space
+                            children: [
+                              ElevatedButton(
+                                onPressed: () => _launchUrl(reminderLink),
+                                  // 
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.white,
+                                  onPrimary: Colors.black,
+                                ),
+                                child: Text('Set a Reminder'),
+                              ),
+                              SizedBox(
+                                  width: 10), // Space between the two buttons
+                              OutlinedButton(
+                                onPressed: () => _launchUrl(link),
+                                style: OutlinedButton.styleFrom(
+                                  side: BorderSide(color: Colors.white),
+                                  primary: Colors.white,
+                                  backgroundColor: Colors.black,
+                                ),
+                                child: Text('Buy Ticket'),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                    ),
-                  ],
-                ),
-                onTap: () {
-                  // Handle onTap action here, e.g., navigate to a detail screen.
-                },
-              );
-            },
+                        Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal:
+                                    MediaQuery.of(context).size.width * 0.20),
+                            child: Divider(
+                                color: Colors.white)) // This is the separator
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
           ),
         ],
       ),
     );
+  }
+}
+
+Future<void> _launchUrl(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
