@@ -1,15 +1,21 @@
+<<<<<<< HEAD
 import 'package:cherishtheweak/pages/Band/band.dart';
 import 'package:cherishtheweak/pages/Discography/discography.dart';
 import 'package:cherishtheweak/pages/Media/media.dart';
 import 'package:cherishtheweak/pages/News/news.dart';
 import 'package:cherishtheweak/pages/Tour/tour.dart';
 import 'package:cherishtheweak/theme/theme.dart';
+=======
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
 import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
 import 'package:cherishtheweak/widget/footer.dart';
 import 'package:cherishtheweak/widget/header.dart';
 import 'package:cherishtheweak/widget/navbar/navbar.dart';
+<<<<<<< HEAD
 import 'package:flutter_blurhash/flutter_blurhash.dart';
+=======
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
 
 class MainHome extends StatefulWidget {
   const MainHome({Key? key}) : super(key: key);
@@ -21,6 +27,7 @@ class MainHome extends StatefulWidget {
 class _MainHomeState extends State<MainHome> {
   double opacity = 0.0; // Initial opacity value
 
+<<<<<<< HEAD
   // DataKeys for Scroll Function on Click
   final tourKey = GlobalKey();
   final newsKey = GlobalKey();
@@ -29,6 +36,8 @@ class _MainHomeState extends State<MainHome> {
   final musicKey = GlobalKey();
   final storeKey = GlobalKey();
 
+=======
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
   @override
   void initState() {
     super.initState();
@@ -40,6 +49,7 @@ class _MainHomeState extends State<MainHome> {
     });
   }
 
+<<<<<<< HEAD
   tourScrollFunction() {
     Scrollable.ensureVisible(tourKey.currentContext!);
   }
@@ -70,11 +80,18 @@ class _MainHomeState extends State<MainHome> {
         mediaScroll: mediaScrollFunction(),
         musicScroll: musicScrollFunction(),
       ),
+=======
+ @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      drawer: CustomDrawer(),
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
       body: Stack(
         children: [
           SingleChildScrollView(
             child: Column(
               children: [
+<<<<<<< HEAD
                 // Background Image with Gradient
                 Stack(
                   children: [
@@ -150,6 +167,10 @@ class _MainHomeState extends State<MainHome> {
 
                 const Footer(),
 
+=======
+                Header(),
+                Footer(),
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
                 // ... other content
               ],
             ),
@@ -158,6 +179,7 @@ class _MainHomeState extends State<MainHome> {
             top: 0,
             left: 0,
             right: 0,
+<<<<<<< HEAD
             child: NavBar(
               logoName: 'Cherish The Weak',
               tourButton: tourScrollFunction(),
@@ -167,8 +189,13 @@ class _MainHomeState extends State<MainHome> {
               musicButton: musicScrollFunction(),
             ),
           ),
+=======
+            child: NavBar(logoName: 'Cherish The Weak')), // Your custom navbar
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
         ],
       ),
     );
   }
 }
+
+

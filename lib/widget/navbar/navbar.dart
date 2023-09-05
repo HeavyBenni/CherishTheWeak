@@ -1,8 +1,8 @@
-import 'package:cherishtheweak/pages/Home/home.dart';
 import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
+<<<<<<< HEAD
   var tourButton;
   var newsButton;
   var bandButton;
@@ -18,6 +18,11 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
     required this.mediaButton,
     required this.musicButton,
   });
+=======
+  final String logoName;
+
+  const NavBar({super.key, required this.logoName});
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +30,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
       color: Colors.transparent,
       child: Column(
         children: [
+    
           Padding(
             padding: const EdgeInsets.only(top: 9),
             child: Row(
@@ -33,13 +39,16 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                   child: LayoutBuilder(
                     builder: (context, constraints) {
                       if (constraints.maxWidth > 1000) {
-                        return NavDesktopView(
+                        return const NavDesktopView(
                           logoName: 'Cherish The Weak',
+<<<<<<< HEAD
                           tourScroll: tourButton,
                           newsScroll: newsButton,
                           bandScroll: bandButton,
                           mediaScroll: mediaButton,
                           musicScroll: musicButton,
+=======
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
                         );
                       } else if (constraints.maxWidth > 700) {
                         return Center(

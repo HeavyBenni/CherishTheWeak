@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class NavDesktopView extends StatefulWidget {
   final String logoName;
+<<<<<<< HEAD
   Function tourScroll;
   var newsScroll;
   var bandScroll;
@@ -48,10 +49,15 @@ class _NavDesktopViewState extends State<NavDesktopView>
     // Start the animation
     _controller.forward();
   }
+=======
+
+  const NavDesktopView({super.key, required this.logoName});
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
 
   @override
   Widget build(BuildContext context) {
     return Row(
+<<<<<<< HEAD
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -152,6 +158,38 @@ class _NavDesktopViewState extends State<NavDesktopView>
         )
       ],
     );
+=======
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 0),
+            child: Home(buttonText: 'Home'),
+          ),
+          const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 0),
+              child: Tour(buttonText: 'Tour')),
+          const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 0),
+              child: Band(buttonText: 'Band')),
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Text(logoName, style: AppTheme.bandName)),
+          const Row(
+            children: [
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 0),
+                  child: Media(buttonText: 'Media')),
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 0),
+                  child: Music(buttonText: 'Music')),
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 0),
+                  child: Store(buttonText: 'Store')),
+            ],
+          ),
+        ]);
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
   }
 }
 
@@ -181,7 +219,7 @@ class NavLaptopView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Text(logoName, style: AppTheme.bandName),
         ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
             child: TourButton(
@@ -191,10 +229,14 @@ class NavLaptopView extends StatelessWidget {
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
+<<<<<<< HEAD
               child: NewsButton(
                 buttonText: 'News',
                 localNewsScroll: newsScroll,
               )),
+=======
+              child: Tour(buttonText: 'Tour')),
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: BandButton(
@@ -273,7 +315,7 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
+    return const Drawer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -286,10 +328,14 @@ class CustomDrawer extends StatelessWidget {
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
+<<<<<<< HEAD
               child: NewsButton(
                 buttonText: 'News',
                 localNewsScroll: newsScroll,
               )),
+=======
+              child: Tour(buttonText: 'Tour')),
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: BandButton(
@@ -356,6 +402,7 @@ class TourButton extends StatelessWidget {
   }
 }
 
+<<<<<<< HEAD
 class NewsButton extends StatelessWidget {
   final String buttonText;
   var localNewsScroll;
@@ -364,6 +411,13 @@ class NewsButton extends StatelessWidget {
   NewsButton({
     required this.buttonText,
     required this.localNewsScroll, // Make the button text a required parameter
+=======
+class Tour extends StatelessWidget {
+  final String buttonText; // Add a required field for the button text
+
+  const Tour({
+    required this.buttonText, // Make the button text a required parameter
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
     Key? key,
   }) : super(key: key);
 
@@ -371,7 +425,11 @@ class NewsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
+<<<<<<< HEAD
         localNewsScroll();
+=======
+        // Your onPressed logic
+>>>>>>> parent of a940da8 (Scroll Navigation 1)
       },
       style: navBarButtonStyle(),
       child: Text(
