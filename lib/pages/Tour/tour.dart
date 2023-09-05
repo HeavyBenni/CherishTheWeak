@@ -34,8 +34,10 @@ class _TourState extends State<Tour> {
               stream: FirebaseFirestore.instance.collection('Tour').snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const CircularProgressIndicator(
-                    color: Colors.green,
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.green,
+                    ),
                   );
                 }
 
