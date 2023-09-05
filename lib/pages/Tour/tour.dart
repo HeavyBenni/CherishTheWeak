@@ -49,31 +49,50 @@ class _TourState extends State<Tour> {
               final dateEnd = tourData['Date-end'] as Timestamp;
               final country = tourData['Country'] as String;
 
-              final dateFormatter = DateFormat('dd. MMM'); // Format pattern for "12. Sep"
+              final dateStartFormat = DateFormat('d ');
+              final dateEndFormat = DateFormat('d MMM');
 
               return ListTile(
                 title: Text(
                   name,
-                  style: AppTheme.headLineLarge, // Customize the headline style
+                  style: AppTheme.bandName, // Customize the headline style
                 ),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                subtitle: Row(
                   children: [
-                    Text(
-                      'Location: $location',
-                      style: AppTheme.text4, // Customize the subtitle style
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Date: ${dateStartFormat.format(dateStart.toDate())}- ${dateEndFormat.format(dateEnd.toDate())}',
+                            style: AppTheme.text4,
+                          ),
+                          Text(
+                            'Location: $country, $location',
+                            style: AppTheme.text4,
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      'Country: $country',
-                      style: AppTheme.text4, // Customize the subtitle style
-                    ),
-                    Text(
-                      'Date Start: ${dateFormatter.format(dateStart.toDate())}', // Format date
-                      style: AppTheme.text4,
-                    ),
-                    Text(
-                      'Date End: ${dateFormatter.format(dateEnd.toDate())}', // Format date
-                      style: AppTheme.text4,
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 60, right: 20),
+                      child: Container(width: 300,
+                        height: 100,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Handle buying tickets action here
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green, // Customize button color
+                          ),
+                          child: Text(
+                            'Buy Tickets',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
