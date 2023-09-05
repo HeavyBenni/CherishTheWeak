@@ -55,7 +55,7 @@ class _NavDesktopViewState extends State<NavDesktopView>
               opacity: _opacityAnimation.value, // Use the animation value
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0),
-                child: HomeButton(buttonText: 'Home'),
+                child: NewsButton(buttonText: 'Home'),
               ),
             );
           },
@@ -82,7 +82,7 @@ class _NavDesktopViewState extends State<NavDesktopView>
               opacity: _opacityAnimation.value, // Use the animation value
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0),
-                child: HomeButton(buttonText: 'Band'),
+                child: BandButton(buttonText: 'Band'),
               ),
             );
           },
@@ -100,7 +100,7 @@ class _NavDesktopViewState extends State<NavDesktopView>
                   opacity: _opacityAnimation.value, // Use the animation value
                   child: const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 0),
-                    child: HomeButton(buttonText: 'Media'),
+                    child: MediaButton(buttonText: 'Media'),
                   ),
                 );
               },
@@ -112,7 +112,7 @@ class _NavDesktopViewState extends State<NavDesktopView>
                   opacity: _opacityAnimation.value, // Use the animation value
                   child: const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 0),
-                    child: HomeButton(buttonText: 'Music'),
+                    child: MusicButton(buttonText: 'Music'),
                   ),
                 );
               },
@@ -124,7 +124,7 @@ class _NavDesktopViewState extends State<NavDesktopView>
                   opacity: _opacityAnimation.value, // Use the animation value
                   child: const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 0),
-                    child: HomeButton(buttonText: 'Store'),
+                    child: StoreButton(buttonText: 'Store'),
                   ),
                 );
               },
@@ -152,7 +152,7 @@ class NavLaptopView extends StatelessWidget {
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
-            child: HomeButton(buttonText: 'Home'),
+            child: NewsButton(buttonText: 'News'),
           ),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0),
@@ -223,7 +223,7 @@ class CustomDrawer extends StatelessWidget {
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
-            child: HomeButton(buttonText: 'Home'),
+            child: NewsButton(buttonText: 'News'),
           ),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0),
@@ -263,10 +263,10 @@ ButtonStyle navBarButtonStyle() {
 }
 
 // Custom NavBar Buttons
-class HomeButton extends StatelessWidget {
+class NewsButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
 
-  const HomeButton({
+  const NewsButton({
     required this.buttonText, // Make the button text a required parameter
     Key? key,
   }) : super(key: key);

@@ -6,6 +6,7 @@ import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
 import 'package:cherishtheweak/widget/footer.dart';
 import 'package:cherishtheweak/widget/navbar/navbar.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({Key? key}) : super(key: key);
@@ -36,10 +37,8 @@ class _MainHomeState extends State<MainHome> {
     });
   }
 
-  Function tourbtn() {
-    return () {
-      Scrollable.ensureVisible(tourKey.currentContext!);
-    };
+  tourbtn() {
+    Scrollable.ensureVisible(tourKey.currentContext!);
   }
 
   @override
@@ -57,9 +56,10 @@ class _MainHomeState extends State<MainHome> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
-                      child: Image.asset(
-                        'lib/assets/images/ctwgig.jpg',
-                        fit: BoxFit.cover,
+                      child: BlurHash(
+                        hash:
+                            'LLATi^xuNFNI.Tt6f5j[9FRjs:s.', // Replace with your BlurHash
+                        imageFit: BoxFit.cover,
                       ),
                     ),
                     Positioned.fill(
@@ -79,19 +79,25 @@ class _MainHomeState extends State<MainHome> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      child: Image.asset(
+                        'lib/assets/images/ctwgig.jpg',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ],
                 ),
                 // Tour
                 SafeArea(
                   child: Card(
-                    margin: EdgeInsets.zero,
-                    key: tourKey,
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.5,
-                      child: const Tour(
-                      ),
-                    )
-                  ),
+                      margin: EdgeInsets.zero,
+                      key: tourKey,
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        child: const Tour(),
+                      )),
                 ),
                 // Band
                 Card(
@@ -126,7 +132,7 @@ class _MainHomeState extends State<MainHome> {
             right: 0,
             child: NavBar(
               logoName: 'Cherish The Weak',
-              tourbtn: null,
+              tourbtn: tourbtn,
             ),
           ),
         ],
