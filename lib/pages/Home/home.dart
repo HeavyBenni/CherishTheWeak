@@ -1,6 +1,7 @@
 import 'package:cherishtheweak/pages/Band/band.dart';
 import 'package:cherishtheweak/pages/Discography/discography.dart';
 import 'package:cherishtheweak/pages/Media/media.dart';
+import 'package:cherishtheweak/pages/News/news.dart';
 import 'package:cherishtheweak/pages/Tour/tour.dart';
 import 'package:cherishtheweak/theme/theme.dart';
 import 'package:cherishtheweak/widget/navbar/views.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:cherishtheweak/widget/footer.dart';
 import 'package:cherishtheweak/widget/header.dart';
 import 'package:cherishtheweak/widget/navbar/navbar.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({Key? key}) : super(key: key);
@@ -20,8 +22,8 @@ class _MainHomeState extends State<MainHome> {
   double opacity = 0.0; // Initial opacity value
 
   // DataKeys for Scroll Function on Click
-  final homeKey = GlobalKey();
   final tourKey = GlobalKey();
+  final newsKey = GlobalKey();
   final bandKey = GlobalKey();
   final mediaKey = GlobalKey();
   final musicKey = GlobalKey();
@@ -38,16 +40,36 @@ class _MainHomeState extends State<MainHome> {
     });
   }
 
-  Function tourbtn() {
-    return () {
-      Scrollable.ensureVisible(tourKey.currentContext!);
-    };
+  tourScrollFunction() {
+    Scrollable.ensureVisible(tourKey.currentContext!);
+  }
+
+  newsScrollFunction() {
+    Scrollable.ensureVisible(newsKey.currentContext!);
+  }
+
+  bandScrollFunction() {
+    Scrollable.ensureVisible(bandKey.currentContext!);
+  }
+
+  mediaScrollFunction() {
+    Scrollable.ensureVisible(mediaKey.currentContext!);
+  }
+
+  musicScrollFunction() {
+    Scrollable.ensureVisible(musicKey.currentContext!);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const CustomDrawer(),
+      drawer: CustomDrawer(
+        tourScroll: tourScrollFunction(),
+        newsScroll: newsScrollFunction(),
+        bandScroll: bandScrollFunction(),
+        mediaScroll: mediaScrollFunction(),
+        musicScroll: musicScrollFunction(),
+      ),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -56,14 +78,22 @@ class _MainHomeState extends State<MainHome> {
                 // Background Image with Gradient
                 Stack(
                   children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      child: Image.asset(
-                        'lib/assets/images/ctwgig.jpg',
-                        fit: BoxFit.cover,
-                      ),
+                    Column(
+                      children: [
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height,
+                            child:
+                                BlurHash(hash: 'LLATi^xuNFNI.Tt6f5j[9FRjs:s.')),
+                      ],
                     ),
+                    Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        child: Image.asset(
+                          'lib/assets/images/ctwgig.jpg',
+                          fit: BoxFit.cover,
+                        )),
                     Positioned.fill(
                       bottom:
                           0, // Adjust this value to control the gradient's height
@@ -87,8 +117,13 @@ class _MainHomeState extends State<MainHome> {
                 Card(
                   margin: EdgeInsets.zero,
                   key: tourKey,
-                  child: Tour(
-                  )
+                  child: Tour(),
+                ),
+                // News
+                Card(
+                  margin: EdgeInsets.zero,
+                  key: newsKey,
+                  child: News(),
                 ),
                 // Band
                 Card(
@@ -99,11 +134,13 @@ class _MainHomeState extends State<MainHome> {
                 // Media
                 Card(
                   margin: EdgeInsets.zero,
+                  key: mediaKey,
                   child: Media(),
                 ),
                 // Music
                 Card(
                   margin: EdgeInsets.zero,
+                  key: musicKey,
                   child: Discography(),
                 ),
                 // Store
@@ -123,7 +160,11 @@ class _MainHomeState extends State<MainHome> {
             right: 0,
             child: NavBar(
               logoName: 'Cherish The Weak',
-              tourbtn: null,
+              tourButton: tourScrollFunction(),
+              newsButton: newsScrollFunction(),
+              bandButton: bandScrollFunction(),
+              mediaButton: mediaScrollFunction(),
+              musicButton: musicScrollFunction(),
             ),
           ),
         ],

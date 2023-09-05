@@ -1,14 +1,23 @@
+import 'package:cherishtheweak/pages/Store/store.dart';
 import 'package:cherishtheweak/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class NavDesktopView extends StatefulWidget {
   final String logoName;
-  var tourFunction;
+  Function tourScroll;
+  var newsScroll;
+  var bandScroll;
+  var mediaScroll;
+  var musicScroll;
 
   NavDesktopView({
     Key? key,
     required this.logoName,
-    required this.tourFunction,
+    required this.tourScroll,
+    required this.newsScroll,
+    required this.bandScroll,
+    required this.mediaScroll,
+    required this.musicScroll,
   }) : super(key: key);
 
   @override
@@ -27,7 +36,7 @@ class _NavDesktopViewState extends State<NavDesktopView>
     // Create an animation controller
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 3000), // Adjust duration as needed
+      duration: Duration(milliseconds: 2000), // Adjust duration as needed
     );
 
     // Create an opacity animation
@@ -53,7 +62,10 @@ class _NavDesktopViewState extends State<NavDesktopView>
               opacity: _opacityAnimation.value, // Use the animation value
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0),
-                child: HomeButton(buttonText: 'Home'),
+                child: TourButton(
+                  buttonText: 'Tour',
+                  tourScroll: widget.tourScroll,
+                ),
               ),
             );
           },
@@ -65,9 +77,9 @@ class _NavDesktopViewState extends State<NavDesktopView>
               opacity: _opacityAnimation.value,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0),
-                child: TourButton(
-                  buttonText: 'Tour',
-                  tourF: widget.tourFunction,
+                child: NewsButton(
+                  buttonText: 'News',
+                  localNewsScroll: widget.newsScroll,
                 ),
               ),
             );
@@ -80,7 +92,10 @@ class _NavDesktopViewState extends State<NavDesktopView>
               opacity: _opacityAnimation.value, // Use the animation value
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0),
-                child: HomeButton(buttonText: 'Band'),
+                child: BandButton(
+                  buttonText: 'Band',
+                  localbandButton: widget.bandScroll,
+                ),
               ),
             );
           },
@@ -98,7 +113,10 @@ class _NavDesktopViewState extends State<NavDesktopView>
                   opacity: _opacityAnimation.value, // Use the animation value
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 0),
-                    child: HomeButton(buttonText: 'Media'),
+                    child: MediaButton(
+                      buttonText: 'Media',
+                      localMediaScroll: widget.mediaScroll,
+                    ),
                   ),
                 );
               },
@@ -110,7 +128,10 @@ class _NavDesktopViewState extends State<NavDesktopView>
                   opacity: _opacityAnimation.value, // Use the animation value
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 0),
-                    child: HomeButton(buttonText: 'Music'),
+                    child: MusicButton(
+                      buttonText: 'Music',
+                      localMusicScroll: widget.musicScroll,
+                    ),
                   ),
                 );
               },
@@ -122,7 +143,7 @@ class _NavDesktopViewState extends State<NavDesktopView>
                   opacity: _opacityAnimation.value, // Use the animation value
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 0),
-                    child: HomeButton(buttonText: 'Store'),
+                    child: StoreButton(buttonText: 'Store'),
                   ),
                 );
               },
@@ -136,8 +157,21 @@ class _NavDesktopViewState extends State<NavDesktopView>
 
 class NavLaptopView extends StatelessWidget {
   final String logoName;
+  var tourScroll;
+  var newsScroll;
+  var bandScroll;
+  var mediaScroll;
+  var musicScroll;
 
-  const NavLaptopView({super.key, required this.logoName});
+  NavLaptopView({
+    super.key,
+    required this.logoName,
+    required this.tourScroll,
+    required this.newsScroll,
+    required this.bandScroll,
+    required this.mediaScroll,
+    required this.musicScroll,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -150,26 +184,38 @@ class NavLaptopView extends StatelessWidget {
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
-            child: HomeButton(buttonText: 'Home'),
+            child: TourButton(
+              buttonText: 'Tour',
+              tourScroll: tourScroll,
+            ),
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: TourButton(
-                buttonText: 'Tour',
-                tourF: null,
+              child: NewsButton(
+                buttonText: 'News',
+                localNewsScroll: newsScroll,
               )),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: BandButton(buttonText: 'Band')),
+              child: BandButton(
+                buttonText: 'Band',
+                localbandButton: bandScroll,
+              )),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: MediaButton(buttonText: 'Media')),
+                  child: MediaButton(
+                    buttonText: 'Media',
+                    localMediaScroll: mediaScroll,
+                  )),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: MusicButton(buttonText: 'Music')),
+                  child: MusicButton(
+                    buttonText: 'Music',
+                    localMusicScroll: musicScroll,
+                  )),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
                   child: StoreButton(buttonText: 'Store')),
@@ -211,7 +257,19 @@ class NavPhoneView extends StatelessWidget {
 }
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+  var tourScroll;
+  var newsScroll;
+  var bandScroll;
+  var mediaScroll;
+  var musicScroll;
+
+  CustomDrawer(
+      {super.key,
+      required this.tourScroll,
+      required this.newsScroll,
+      required this.bandScroll,
+      required this.mediaScroll,
+      required this.musicScroll});
 
   @override
   Widget build(BuildContext context) {
@@ -221,23 +279,35 @@ class CustomDrawer extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 0),
-            child: HomeButton(buttonText: 'Home'),
+            child: TourButton(
+              buttonText: 'Tour',
+              tourScroll: tourScroll,
+            ),
           ),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: TourButton(
-                buttonText: 'Tour',
-                tourF: null,
+              child: NewsButton(
+                buttonText: 'News',
+                localNewsScroll: newsScroll,
               )),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: BandButton(buttonText: 'Band')),
+              child: BandButton(
+                buttonText: 'Band',
+                localbandButton: bandScroll,
+              )),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: MediaButton(buttonText: 'Media')),
+              child: MediaButton(
+                buttonText: 'Media',
+                localMediaScroll: mediaScroll,
+              )),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: MusicButton(buttonText: 'Music')),
+              child: MusicButton(
+                buttonText: 'Music',
+                localMusicScroll: musicScroll,
+              )),
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: StoreButton(buttonText: 'Store')),
@@ -261,11 +331,13 @@ ButtonStyle navBarButtonStyle() {
 }
 
 // Custom NavBar Buttons
-class HomeButton extends StatelessWidget {
+class TourButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
+  var tourScroll;
 
-  const HomeButton({
+  TourButton({
     required this.buttonText, // Make the button text a required parameter
+    required this.tourScroll,
     Key? key,
   }) : super(key: key);
 
@@ -273,7 +345,7 @@ class HomeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        // Your onPressed logic
+        tourScroll();
       },
       style: navBarButtonStyle(),
       child: Text(
@@ -284,14 +356,14 @@ class HomeButton extends StatelessWidget {
   }
 }
 
-class TourButton extends StatelessWidget {
+class NewsButton extends StatelessWidget {
   final String buttonText;
-  var tourF;
+  var localNewsScroll;
   // Add a required field for the button text
 
-  TourButton({
+  NewsButton({
     required this.buttonText,
-    required this.tourF, // Make the button text a required parameter
+    required this.localNewsScroll, // Make the button text a required parameter
     Key? key,
   }) : super(key: key);
 
@@ -299,7 +371,7 @@ class TourButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        tourF();
+        localNewsScroll();
       },
       style: navBarButtonStyle(),
       child: Text(
@@ -312,9 +384,11 @@ class TourButton extends StatelessWidget {
 
 class BandButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
+  var localbandButton;
 
-  const BandButton({
+  BandButton({
     required this.buttonText, // Make the button text a required parameter
+    required this.localbandButton,
     Key? key,
   }) : super(key: key);
 
@@ -322,7 +396,7 @@ class BandButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        // Your onPressed logic
+        localbandButton();
       },
       style: navBarButtonStyle(),
       child: Text(
@@ -335,9 +409,11 @@ class BandButton extends StatelessWidget {
 
 class MediaButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
+  var localMediaScroll;
 
-  const MediaButton({
+  MediaButton({
     required this.buttonText, // Make the button text a required parameter
+    required this.localMediaScroll,
     Key? key,
   }) : super(key: key);
 
@@ -345,7 +421,7 @@ class MediaButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        // Your onPressed logic
+        localMediaScroll();
       },
       style: navBarButtonStyle(),
       child: Text(
@@ -358,9 +434,11 @@ class MediaButton extends StatelessWidget {
 
 class MusicButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
+  var localMusicScroll;
 
-  const MusicButton({
+  MusicButton({
     required this.buttonText, // Make the button text a required parameter
+    required this.localMusicScroll,
     Key? key,
   }) : super(key: key);
 
@@ -368,7 +446,7 @@ class MusicButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        // Your onPressed logic
+        localMusicScroll();
       },
       style: navBarButtonStyle(),
       child: Text(

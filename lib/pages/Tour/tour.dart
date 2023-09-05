@@ -49,7 +49,8 @@ class _TourState extends State<Tour> {
               final dateEnd = tourData['Date-end'] as Timestamp;
               final country = tourData['Country'] as String;
 
-              final dateFormatter = DateFormat('dd. MMM'); // Format pattern for "12. Sep"
+              final dateFormatter =
+                  DateFormat('dd. MMM'); // Format pattern for "12. Sep"
 
               return ListTile(
                 title: Text(

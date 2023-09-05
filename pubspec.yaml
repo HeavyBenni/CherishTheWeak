@@ -41,6 +41,7 @@ dependencies:
   firebase_core: ^2.15.1
   flutterfire_cli: ^0.1.1+2
   intl: ^0.18.1
+  flutter_blurhash: ^0.7.0
 
 dev_dependencies:
   flutter_test:
