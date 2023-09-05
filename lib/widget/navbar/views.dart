@@ -3,47 +3,80 @@ import 'package:flutter/material.dart';
 
 class NavDesktopView extends StatelessWidget {
   final String logoName;
+  final bool shouldFadeIn; // Use a bool to control the fading effect
   var tourFunction;
 
-  NavDesktopView(
-      {super.key, required this.logoName, required this.tourFunction});
+  NavDesktopView({
+    Key? key,
+    required this.logoName,
+    required this.tourFunction,
+    required this.shouldFadeIn,
+  }) : super(key: key);
+
+  // Define a function to create a faded-in widget
+  Widget _fadeIf(bool condition, Widget child) {
+    return shouldFadeIn
+        ? AnimatedOpacity(
+            opacity: condition ? 1.0 : 0.0,
+            duration: const Duration(
+                milliseconds:
+                    10000000000000000), // Adjust the duration as needed
+            child: child,
+          )
+        : child;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 0),
-            child: HomeButton(buttonText: 'Home'),
-          ),
-          Padding(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        _fadeIf(
+            true,
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
+              child: HomeButton(buttonText: 'Home'),
+            )),
+        _fadeIf(
+            true,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 0),
               child: TourButton(
                 buttonText: 'Tour',
                 tourF: tourFunction,
-              )),
-          const Padding(
+              ),
+            )),
+        _fadeIf(
+            true,
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
-              child: BandButton(buttonText: 'Band')),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(logoName, style: AppTheme.bandName)),
-          const Row(
-            children: [
-              Padding(
+              child: BandButton(buttonText: 'Band'),
+            )),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Text(logoName, style: AppTheme.bandName),
+        ),
+        _fadeIf(
+            true,
+            const Row(
+              children: [
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: MediaButton(buttonText: 'Media')),
-              Padding(
+                  child: MediaButton(buttonText: 'Media'),
+                ),
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: MusicButton(buttonText: 'Music')),
-              Padding(
+                  child: MusicButton(buttonText: 'Music'),
+                ),
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: StoreButton(buttonText: 'Store')),
-            ],
-          ),
-        ]);
+                  child: StoreButton(buttonText: 'Store'),
+                ),
+              ],
+            )),
+      ],
+    );
   }
 }
 
