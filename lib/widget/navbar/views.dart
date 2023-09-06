@@ -228,7 +228,7 @@ class NavPhoneView extends StatelessWidget {
           IconButton(
             icon: const Icon(
               Icons.menu,
-              color: AppTheme.color2,
+              color: AppTheme.beigeColor,
             ),
             onPressed: () {
               Scaffold.of(context).openDrawer();

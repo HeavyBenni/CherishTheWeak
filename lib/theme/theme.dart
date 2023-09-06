@@ -2,60 +2,56 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static const Color color1 = Color.fromRGBO(255, 255, 255, 1); // Deep Blue
-  static const Color color2 = Color.fromARGB(255, 255, 221, 175); // Goldenrod
-  static const Color color3 = Color(0xFFDC143C); // Crimson
-  static const Color color4 = Color.fromARGB(255, 233, 205, 163); // Sage Green
-  static const Color color5 = Colors.white; // Pearl
-  static const Color color6 = Color(0xFF333333); // Charcoal
+  static const Color whiteColor = Color.fromRGBO(255, 255, 255, 1); // Deep Blue
+  static const Color beigeColor = Color.fromARGB(255, 255, 221, 175); // Goldenrod
+  static const Color redColor = Color(0xFFDC143C); // Crimson
+  static const Color blackColor = Color.fromARGB(255, 0, 0, 0); // Charcoal
 
   static TextStyle bandName = const TextStyle(
     fontFamily: 'Metal',
     fontSize: 45,
     fontWeight: FontWeight.bold,
-    color: color2,
+    color: beigeColor,
   );
 
   static TextStyle headLineLarge = const TextStyle(
     fontFamily: 'BebasNeue',
     fontSize: 30,
-    color: color1,
+    color: whiteColor,
   );
 
   static TextStyle text3 = GoogleFonts.medievalSharp(
     fontSize: 40,
-    color: color2,
+    color: beigeColor,
   );
 
-  static const TextStyle tourDate = TextStyle(
+  static const TextStyle tourName = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.bold,
-    color: color1,
+    color: whiteColor,
   );
 
   static const TextStyle tourInfo = TextStyle(
     fontSize: 14,
-    color: color5,
+    color: whiteColor,
   );
 
   static const TextStyle text6 = TextStyle(
     fontSize: 10,
-    color: color6,
+    color: blackColor,
   );
 
   // Custom Color and Text Titles
   static final ThemeData mainTheme = ThemeData(
-    primaryColor: color1,
-    primaryColorDark: color2,
-    primaryColorLight: color3,
-    hintColor: color4,
-    shadowColor: color5,
-    cardColor: color6,
+    primaryColor: whiteColor,
+    primaryColorDark: beigeColor,
+    primaryColorLight: redColor,
+    cardColor: blackColor,
     textTheme: TextTheme(
       displayLarge: bandName,
       displayMedium: headLineLarge,
       displaySmall: text3,
-      headlineLarge: tourDate,
+      headlineLarge: tourName,
       headlineMedium: tourInfo,
       headlineSmall: text6,
     ),

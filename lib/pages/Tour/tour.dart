@@ -19,16 +19,20 @@ class _TourState extends State<Tour> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      color: AppTheme.blackColor,
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
           Center(
             child: Text(
               '- Tours -',
-              style: AppTheme.text3,
+              style: AppTheme.bandName,
             ),
           ),
+          Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.20),
+              child: const Divider(color: AppTheme.whiteColor)),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
               stream: FirebaseFirestore.instance.collection('Tour').snapshots(),
@@ -36,7 +40,7 @@ class _TourState extends State<Tour> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
                     child: CircularProgressIndicator(
-                      color: Colors.green,
+                      color: AppTheme.beigeColor,
                     ),
                   );
                 }
@@ -67,62 +71,140 @@ class _TourState extends State<Tour> {
                     final dateStartFormat = DateFormat('d ');
                     final dateEndFormat = DateFormat('d MMM');
 
-                    return Column(
-                      children: [
-                        ListTile(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal:
-                                  MediaQuery.of(context).size.width * 0.20),
-                          title: Text(
-                            'Date: ${dateStartFormat.format(dateStart.toDate())}- ${dateEndFormat.format(dateEnd.toDate())}',
-                            style: AppTheme.tourDate,
-                          ),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                name,
-                                style: AppTheme.tourInfo,
-                              ),
-                              Text(
-                                'Location: $location, $country',
-                                style: AppTheme.tourInfo,
-                              ),
-                            ],
-                          ),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize
-                                .min, // Ensure the row takes up minimal space
-                            children: [
-                              ElevatedButton(
-                                onPressed: () => _launchUrl(reminderLink),
-                                  // 
-                                style: ElevatedButton.styleFrom(
-                                  foregroundColor: Colors.black, backgroundColor: Colors.white,
+                    if (MediaQuery.of(context).size.width < 800) {
+                      // Smaller screen layout
+                      return Column(
+                        children: [
+                          ListTile(
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.10),
+                              title: Center(
+                                child: Text(
+                                  name,
+                                  style: AppTheme.tourName,
                                 ),
-                                child: const Text('Set a Reminder'),
                               ),
-                              const SizedBox(
-                                  width: 10), // Space between the two buttons
-                              OutlinedButton(
-                                onPressed: () => _launchUrl(link),
-                                style: OutlinedButton.styleFrom(
-                                  foregroundColor: Colors.white, side: const BorderSide(color: Colors.white),
-                                  backgroundColor: Colors.black,
-                                ),
-                                child: const Text('Buy Ticket'),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                            padding: EdgeInsets.symmetric(
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Date: ${dateStartFormat.format(dateStart.toDate())}- ${dateEndFormat.format(dateEnd.toDate())}',
+                                  style: AppTheme.tourInfo,
+                                  ),
+                                  Text(
+                                    'Location: $location, $country',
+                                    style: AppTheme.tourInfo,
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize
+                                        .min, // Ensure the row takes up minimal space
+                                    children: [
+                                      SizedBox(
+                                        height: 40,
+                                        width: 140,
+                                        child: ElevatedButton(
+                                          onPressed: () =>
+                                              _launchUrl(reminderLink),
+                                          style: ElevatedButton.styleFrom(
+                                            foregroundColor: AppTheme.blackColor,
+                                            backgroundColor: AppTheme.beigeColor,
+                                          ),
+                                          child: const Text('Set a Reminder'),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                          width:
+                                              10), // Space between the two buttons
+                                      SizedBox(
+                                        height: 40,
+                                        width: 140,
+                                        child: OutlinedButton(
+                                          onPressed: () => _launchUrl(link),
+                                          style: OutlinedButton.styleFrom(
+                                            foregroundColor: AppTheme.beigeColor,
+                                            side: const BorderSide(
+                                                color: AppTheme.beigeColor),
+                                            backgroundColor: AppTheme.blackColor,
+                                          ),
+                                          child: const Text('Buy Ticket'),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )),
+                          Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.20),
+                              child: const Divider(
+                                  color: AppTheme.whiteColor)) // This is the separator
+                        ],
+                      );
+                    } else {
+                      // Larger screen layout
+                      return Column(
+                        children: [
+                          ListTile(
+                            contentPadding: EdgeInsets.symmetric(
                                 horizontal:
                                     MediaQuery.of(context).size.width * 0.20),
-                            child: const Divider(
-                                color: Colors.white)) // This is the separator
-                      ],
-                    );
+                            title: Text(
+                              'Date: ${dateStartFormat.format(dateStart.toDate())}- ${dateEndFormat.format(dateEnd.toDate())}',
+                              style: AppTheme.tourName,
+                            ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  name,
+                                  style: AppTheme.tourInfo,
+                                ),
+                                Text(
+                                  'Location: $location, $country',
+                                  style: AppTheme.tourInfo,
+                                ),
+                              ],
+                            ),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize
+                                  .min, // Ensure the row takes up minimal space
+                              children: [
+                                ElevatedButton(
+                                  onPressed: () => _launchUrl(reminderLink),
+                                  style: ElevatedButton.styleFrom(
+                                    foregroundColor: AppTheme.blackColor,
+                                    backgroundColor: AppTheme.beigeColor,
+                                  ),
+                                  child: const Text('Set a Reminder'),
+                                ),
+                                const SizedBox(
+                                    width: 10), // Space between the two buttons
+                                OutlinedButton(
+                                  onPressed: () => _launchUrl(link),
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: AppTheme.beigeColor,
+                                    side: const BorderSide(color: AppTheme.beigeColor),
+                                    backgroundColor: AppTheme.blackColor,
+                                  ),
+                                  child: const Text('Buy Ticket'),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.20),
+                              child: const Divider(
+                                  color: AppTheme.whiteColor)) // This is the separator
+                        ],
+                      );
+                    }
                   },
                 );
               },

@@ -3,6 +3,7 @@ import 'package:cherishtheweak/pages/Discography/discography.dart';
 import 'package:cherishtheweak/pages/Media/media.dart';
 import 'package:cherishtheweak/pages/News/news.dart';
 import 'package:cherishtheweak/pages/Tour/tour.dart';
+import 'package:cherishtheweak/theme/theme.dart';
 import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
 import 'package:cherishtheweak/widget/footer.dart';
@@ -128,7 +129,7 @@ class _MainHomeState extends State<MainHome> {
                             begin: Alignment.bottomCenter,
                             end: Alignment.topCenter,
                             colors: [
-                              Colors.black
+                              AppTheme.blackColor
                                   .withOpacity(0.9), // Semi-transparent black
                               Colors.transparent, // Fully transparent
                             ],

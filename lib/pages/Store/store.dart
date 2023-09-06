@@ -1,3 +1,4 @@
+import 'package:cherishtheweak/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class Store extends StatelessWidget {
@@ -6,7 +7,7 @@ class Store extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
+      color: AppTheme.blackColor,
       child: const Placeholder(),);
   }
 }

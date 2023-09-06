@@ -13,7 +13,7 @@ class Footer extends StatelessWidget {
     return Container(
       height: 300, // Adjusted height to fit more content.
       width: MediaQuery.of(context).size.width,
-      color: Colors.black,
+      color: AppTheme.blackColor,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -43,7 +43,7 @@ class Footer extends StatelessWidget {
           const Text(
             'Contact: benjamin.csaplar005@gmail.com | Phone: +47 968 17 835',
             style: TextStyle(
-              color: Colors.white,
+              color: AppTheme.whiteColor,
               fontSize: 12,
             ),
           ),
@@ -56,15 +56,15 @@ class Footer extends StatelessWidget {
                   // Navigate to Terms and Conditions page
                 },
                 child: const Text('Terms & Conditions',
-                    style: TextStyle(color: Colors.white)),
+                    style: TextStyle(color: AppTheme.whiteColor)),
               ),
-              const VerticalDivider(color: Colors.white, width: 5),
+              const VerticalDivider(color: AppTheme.whiteColor, width: 5),
               TextButton(
                 onPressed: () {
                   // Navigate to Privacy Policy page
                 },
                 child: const Text('Privacy Policy',
-                    style: TextStyle(color: Colors.white)),
+                    style: TextStyle(color: AppTheme.whiteColor)),
               ),
             ],
           ),
@@ -72,7 +72,7 @@ class Footer extends StatelessWidget {
           const Text(
             '© 2023 Cherish The Weak. All Rights Reserved.',
             style: TextStyle(
-              color: Colors.white,
+              color: AppTheme.whiteColor,
               fontSize: 10,
             ),
           ),
@@ -101,7 +101,7 @@ class _SocialIconButton extends StatelessWidget {
       },
       child: Icon(
         icon,
-        color: Colors.white,
+        color: AppTheme.whiteColor,
         size: 24,
       ),
     );
