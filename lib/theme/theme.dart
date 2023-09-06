@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const Color whiteColor = Color.fromRGBO(255, 255, 255, 1); // Deep Blue
-  static const Color beigeColor = Color.fromARGB(255, 255, 221, 175); // Goldenrod
+  static const Color beigeColor =
+      Color.fromARGB(255, 255, 221, 175); // Goldenrod
   static const Color redColor = Color(0xFFDC143C); // Crimson
   static const Color blackColor = Color.fromARGB(255, 0, 0, 0); // Charcoal
 
@@ -20,9 +21,9 @@ class AppTheme {
     color: whiteColor,
   );
 
-  static TextStyle text3 = GoogleFonts.medievalSharp(
+  static TextStyle text3 = GoogleFonts.josefinSans(
     fontSize: 40,
-    color: beigeColor,
+    color: whiteColor,
   );
 
   static const TextStyle tourName = TextStyle(

@@ -24,10 +24,19 @@ class _TourState extends State<Tour> {
       child: Column(
         children: [
           Center(
-            child: Text(
-              '- Tours -',
-              style: AppTheme.bandName,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: Text(
+                'TOURS',
+                style: AppTheme.text3,
+              ),
             ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 20, bottom: 50),
+            width: 175,
+            height: 2,
+            color: AppTheme.beigeColor,
           ),
           Container(
               padding: EdgeInsets.symmetric(
@@ -90,7 +99,7 @@ class _TourState extends State<Tour> {
                                 children: [
                                   Text(
                                     'Date: ${dateStartFormat.format(dateStart.toDate())}- ${dateEndFormat.format(dateEnd.toDate())}',
-                                  style: AppTheme.tourInfo,
+                                    style: AppTheme.tourInfo,
                                   ),
                                   Text(
                                     'Location: $location, $country',
@@ -110,8 +119,10 @@ class _TourState extends State<Tour> {
                                           onPressed: () =>
                                               _launchUrl(reminderLink),
                                           style: ElevatedButton.styleFrom(
-                                            foregroundColor: AppTheme.blackColor,
-                                            backgroundColor: AppTheme.beigeColor,
+                                            foregroundColor:
+                                                AppTheme.blackColor,
+                                            backgroundColor:
+                                                AppTheme.beigeColor,
                                           ),
                                           child: const Text('Set a Reminder'),
                                         ),
@@ -125,10 +136,12 @@ class _TourState extends State<Tour> {
                                         child: OutlinedButton(
                                           onPressed: () => _launchUrl(link),
                                           style: OutlinedButton.styleFrom(
-                                            foregroundColor: AppTheme.beigeColor,
+                                            foregroundColor:
+                                                AppTheme.beigeColor,
                                             side: const BorderSide(
                                                 color: AppTheme.beigeColor),
-                                            backgroundColor: AppTheme.blackColor,
+                                            backgroundColor:
+                                                AppTheme.blackColor,
                                           ),
                                           child: const Text('Buy Ticket'),
                                         ),
@@ -142,7 +155,8 @@ class _TourState extends State<Tour> {
                                   horizontal:
                                       MediaQuery.of(context).size.width * 0.20),
                               child: const Divider(
-                                  color: AppTheme.whiteColor)) // This is the separator
+                                  color: AppTheme
+                                      .whiteColor)) // This is the separator
                         ],
                       );
                     } else {
@@ -188,7 +202,8 @@ class _TourState extends State<Tour> {
                                   onPressed: () => _launchUrl(link),
                                   style: OutlinedButton.styleFrom(
                                     foregroundColor: AppTheme.beigeColor,
-                                    side: const BorderSide(color: AppTheme.beigeColor),
+                                    side: const BorderSide(
+                                        color: AppTheme.beigeColor),
                                     backgroundColor: AppTheme.blackColor,
                                   ),
                                   child: const Text('Buy Ticket'),
@@ -201,7 +216,8 @@ class _TourState extends State<Tour> {
                                   horizontal:
                                       MediaQuery.of(context).size.width * 0.20),
                               child: const Divider(
-                                  color: AppTheme.whiteColor)) // This is the separator
+                                  color: AppTheme
+                                      .whiteColor)) // This is the separator
                         ],
                       );
                     }

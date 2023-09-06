@@ -156,8 +156,20 @@ class _NavDesktopViewState extends State<NavDesktopView>
 
 class NavLaptopView extends StatelessWidget {
   final String logoName;
+  var tourFunction;
+  var newsFunction;
+  var bandFucntion;
+  var mediaFunction;
+  var musicFunction;
 
-  const NavLaptopView({super.key, required this.logoName});
+  NavLaptopView(
+      {super.key,
+      required this.logoName,
+      required this.tourFunction,
+      required this.newsFunction,
+      required this.bandFucntion,
+      required this.mediaFunction,
+      required this.musicFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -169,23 +181,23 @@ class NavLaptopView extends StatelessWidget {
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 0),
+              child: TourButton(
+                buttonText: 'Tour',
+                tourFunction: tourFunction,
+              )),
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 0),
             child: NewsButton(
               buttonText: 'News',
-              newsFunction: null,
+              newsFunction: newsFunction,
             ),
           ),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0),
-              child: TourButton(
-                buttonText: 'Tour',
-                tourFunction: null,
-              )),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
               child: BandButton(
                 buttonText: 'Band',
-                bandFunction: null,
+                bandFunction: bandFucntion,
               )),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -194,13 +206,13 @@ class NavLaptopView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 0),
                   child: MediaButton(
                     buttonText: 'Media',
-                    mediaFunction: null,
+                    mediaFunction: mediaFunction,
                   )),
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 0),
                   child: MusicButton(
                     buttonText: 'Music',
-                    musicFunction: null,
+                    musicFunction: musicFunction,
                   )),
               const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
@@ -215,8 +227,21 @@ class NavLaptopView extends StatelessWidget {
 
 class NavPhoneView extends StatelessWidget {
   final String logoName;
+  var tourFunction;
+  var newsFunction;
+  var bandFucntion;
+  var mediaFunction;
+  var musicFunction;
 
-  const NavPhoneView({Key? key, required this.logoName}) : super(key: key);
+  NavPhoneView(
+      {Key? key,
+      required this.logoName,
+      required this.tourFunction,
+      required this.newsFunction,
+      required this.bandFucntion,
+      required this.mediaFunction,
+      required this.musicFunction})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -243,48 +268,97 @@ class NavPhoneView extends StatelessWidget {
 }
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+  final Function tourFunction;
+  final Function newsFunction;
+  final Function bandFunction;
+  final Function mediaFunction;
+  final Function musicFunction;
+
+  CustomDrawer({
+    required this.tourFunction,
+    required this.newsFunction,
+    required this.bandFunction,
+    required this.mediaFunction,
+    required this.musicFunction,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Column(
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(206, 0, 0, 0),
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 0),
-            child: NewsButton(
-              buttonText: 'News',
-              newsFunction: null,
+            padding: const EdgeInsets.only(top: 18),
+            child: IconButton(
+              color: AppTheme.beigeColor,
+              icon: Icon(Icons.close),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
             ),
           ),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
-              child: TourButton(
-                buttonText: 'Tour',
-                tourFunction: null,
-              )),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
-              child: BandButton(
-                buttonText: 'Band',
-                bandFunction: null,
-              )),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
-              child: MediaButton(
-                buttonText: 'Media',
-                mediaFunction: null,
-              )),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
-              child: MusicButton(
-                buttonText: 'Music',
-                musicFunction: null,
-              )),
-          const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0),
-              child: StoreButton(buttonText: 'Store')),
+          ListTile(
+            title: Text(
+              'Tour',
+              style: AppTheme.headLineLarge,
+            ),
+            onTap: () {
+              tourFunction();
+              Navigator.of(context).pop(); // Close the drawer
+            },
+          ),
+          ListTile(
+            title: Text(
+              'News',
+              style: AppTheme.headLineLarge,
+            ),
+            onTap: () {
+              newsFunction();
+              Navigator.of(context).pop(); // Close the drawer
+            },
+          ),
+          ListTile(
+            title: Text(
+              'Band',
+              style: AppTheme.headLineLarge,
+            ),
+            onTap: () {
+              bandFunction();
+              Navigator.of(context).pop(); // Close the drawer
+            },
+          ),
+          ListTile(
+            title: Text(
+              'Media',
+              style: AppTheme.headLineLarge,
+            ),
+            onTap: () {
+              mediaFunction();
+              Navigator.of(context).pop(); // Close the drawer
+            },
+          ),
+          ListTile(
+            title: Text(
+              'Music',
+              style: AppTheme.headLineLarge,
+            ),
+            onTap: () {
+              musicFunction();
+              Navigator.of(context).pop(); // Close the drawer
+            },
+          ),
+          ListTile(
+            title: Text(
+              'Store',
+              style: AppTheme.headLineLarge,
+            ),
+            onTap: () {
+              // Handle Store button tap here
+              Navigator.of(context).pop(); // Close the drawer
+            },
+          ),
           // ... other drawer items
         ],
       ),
