@@ -1,6 +1,7 @@
 import 'package:cherishtheweak/pages/Band/band.dart';
 import 'package:cherishtheweak/pages/Discography/discography.dart';
 import 'package:cherishtheweak/pages/Media/media.dart';
+import 'package:cherishtheweak/pages/News/news.dart';
 import 'package:cherishtheweak/pages/Tour/tour.dart';
 import 'package:cherishtheweak/widget/navbar/views.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class _MainHomeState extends State<MainHome> {
   final bandKey = GlobalKey();
   final mediaKey = GlobalKey();
   final musicKey = GlobalKey();
-  final storeKey = GlobalKey();
+  final newsKey = GlobalKey();
 
   @override
   void initState() {
@@ -38,7 +39,63 @@ class _MainHomeState extends State<MainHome> {
   }
 
   tourbtn() {
-    Scrollable.ensureVisible(tourKey.currentContext!);
+    final RenderBox renderBox =
+        tourKey.currentContext!.findRenderObject() as RenderBox;
+    Scrollable.ensureVisible(
+      tourKey.currentContext!,
+      alignment:
+          0.2, // You can adjust this value to center the card on the screen.
+      duration: const Duration(
+          milliseconds: 500), // Optional duration for smooth scrolling.
+    );
+  }
+
+  newsbtn() {
+    final RenderBox renderBox =
+        newsKey.currentContext!.findRenderObject() as RenderBox;
+    Scrollable.ensureVisible(
+      newsKey.currentContext!,
+      alignment:
+          0.2, // You can adjust this value to center the card on the screen.
+      duration: const Duration(
+          milliseconds: 500), // Optional duration for smooth scrolling.
+    );
+  }
+
+  bandbtn() {
+    final RenderBox renderBox =
+        bandKey.currentContext!.findRenderObject() as RenderBox;
+    Scrollable.ensureVisible(
+      bandKey.currentContext!,
+      alignment:
+          0.2, // You can adjust this value to center the card on the screen.
+      duration: const Duration(
+          milliseconds: 500), // Optional duration for smooth scrolling.
+    );
+  }
+
+  mediabtn() {
+    final RenderBox renderBox =
+        mediaKey.currentContext!.findRenderObject() as RenderBox;
+    Scrollable.ensureVisible(
+      mediaKey.currentContext!,
+      alignment:
+          0.2, // You can adjust this value to center the card on the screen.
+      duration: const Duration(
+          milliseconds: 500), // Optional duration for smooth scrolling.
+    );
+  }
+
+  musicbtn() {
+    final RenderBox renderBox =
+        musicKey.currentContext!.findRenderObject() as RenderBox;
+    Scrollable.ensureVisible(
+      musicKey.currentContext!,
+      alignment:
+          0.2, // You can adjust this value to center the card on the screen.
+      duration: const Duration(
+          milliseconds: 500), // Optional duration for smooth scrolling.
+    );
   }
 
   @override
@@ -56,7 +113,7 @@ class _MainHomeState extends State<MainHome> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
-                      child: BlurHash(
+                      child: const BlurHash(
                         hash:
                             'LLATi^xuNFNI.Tt6f5j[9FRjs:s.', // Replace with your BlurHash
                         imageFit: BoxFit.cover,
@@ -105,19 +162,23 @@ class _MainHomeState extends State<MainHome> {
                   margin: EdgeInsets.zero,
                   child: const Band(),
                 ),
-                // Media
-                const Card(
+                // News
+                Card(
+                  key: newsKey,
                   margin: EdgeInsets.zero,
-                  child: Media(),
+                  child: const News(),
+                ),
+                // Media
+                Card(
+                  key: mediaKey,
+                  margin: EdgeInsets.zero,
+                  child: const Media(),
                 ),
                 // Music
-                const Card(
+                Card(
+                  key: musicKey,
                   margin: EdgeInsets.zero,
                   child: Discography(),
-                ),
-                // Store
-                const Card(
-                  margin: EdgeInsets.zero,
                 ),
 
                 const Footer(),
@@ -133,6 +194,10 @@ class _MainHomeState extends State<MainHome> {
             child: NavBar(
               logoName: 'Cherish The Weak',
               tourbtn: tourbtn,
+              newsbtn: newsbtn,
+              bandbtn: bandbtn,
+              mediabtn: mediabtn,
+              musicbtn: musicbtn,
             ),
           ),
         ],

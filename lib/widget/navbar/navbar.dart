@@ -5,12 +5,19 @@ import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
   var tourbtn;
+  var newsbtn;
+  var bandbtn;
+  var mediabtn;
+  var musicbtn;
   final String logoName;
-  NavBar({
-    super.key,
-    required this.logoName,
-    required this.tourbtn,
-  });
+  NavBar(
+      {super.key,
+      required this.logoName,
+      required this.tourbtn,
+      required this.newsbtn,
+      required this.bandbtn,
+      required this.mediabtn,
+      required this.musicbtn});
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +36,10 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                         return NavDesktopView(
                           logoName: 'Cherish The Weak',
                           tourFunction: tourbtn,
+                          newsFunction: newsbtn,
+                          bandFucntion: bandbtn,
+                          mediaFunction: mediabtn,
+                          musicFunction: musicbtn,
                         );
                       } else if (constraints.maxWidth > 700) {
                         return const Center(

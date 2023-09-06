@@ -6,12 +6,20 @@ import 'package:flutter/material.dart';
 class NavDesktopView extends StatefulWidget {
   final String logoName;
   var tourFunction;
+  var newsFunction;
+  var bandFucntion;
+  var mediaFunction;
+  var musicFunction;
 
-  NavDesktopView({
-    Key? key,
-    required this.logoName,
-    required this.tourFunction,
-  }) : super(key: key);
+  NavDesktopView(
+      {Key? key,
+      required this.logoName,
+      required this.tourFunction,
+      required this.newsFunction,
+      required this.bandFucntion,
+      required this.mediaFunction,
+      required this.musicFunction})
+      : super(key: key);
 
   @override
   State<NavDesktopView> createState() => _NavDesktopViewState();
@@ -53,9 +61,12 @@ class _NavDesktopViewState extends State<NavDesktopView>
           builder: (context, child) {
             return Opacity(
               opacity: _opacityAnimation.value, // Use the animation value
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 0),
-                child: NewsButton(buttonText: 'News'),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 0),
+                child: NewsButton(
+                  buttonText: 'News',
+                  newsFunction: widget.newsFunction,
+                ),
               ),
             );
           },
@@ -69,7 +80,7 @@ class _NavDesktopViewState extends State<NavDesktopView>
                 padding: const EdgeInsets.symmetric(horizontal: 0),
                 child: TourButton(
                   buttonText: 'Tour',
-                  tourF: widget.tourFunction,
+                  tourFunction: widget.tourFunction,
                 ),
               ),
             );
@@ -80,9 +91,10 @@ class _NavDesktopViewState extends State<NavDesktopView>
           builder: (context, child) {
             return Opacity(
               opacity: _opacityAnimation.value, // Use the animation value
-              child: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 0),
-                child: BandButton(buttonText: 'Band'),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 0),
+                child: BandButton(
+                    buttonText: 'Band', bandFunction: widget.bandFucntion),
               ),
             );
           },
@@ -98,9 +110,12 @@ class _NavDesktopViewState extends State<NavDesktopView>
               builder: (context, child) {
                 return Opacity(
                   opacity: _opacityAnimation.value, // Use the animation value
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0),
-                    child: MediaButton(buttonText: 'Media'),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                    child: MediaButton(
+                      buttonText: 'Media',
+                      mediaFunction: widget.mediaFunction,
+                    ),
                   ),
                 );
               },
@@ -110,9 +125,12 @@ class _NavDesktopViewState extends State<NavDesktopView>
               builder: (context, child) {
                 return Opacity(
                   opacity: _opacityAnimation.value, // Use the animation value
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0),
-                    child: MusicButton(buttonText: 'Music'),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                    child: MusicButton(
+                      buttonText: 'Music',
+                      musicFunction: widget.musicFunction,
+                    ),
                   ),
                 );
               },
@@ -150,29 +168,41 @@ class NavLaptopView extends StatelessWidget {
           child: Text(logoName, style: AppTheme.bandName),
         ),
         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 0),
-            child: NewsButton(buttonText: 'News'),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0),
+            child: NewsButton(
+              buttonText: 'News',
+              newsFunction: null,
+            ),
           ),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0),
               child: TourButton(
                 buttonText: 'Tour',
-                tourF: null,
+                tourFunction: null,
               )),
-          const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0),
-              child: BandButton(buttonText: 'Band')),
-          const Row(
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 0),
+              child: BandButton(
+                buttonText: 'Band',
+                bandFunction: null,
+              )),
+          Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: MediaButton(buttonText: 'Media')),
+                  padding: const EdgeInsets.symmetric(horizontal: 0),
+                  child: MediaButton(
+                    buttonText: 'Media',
+                    mediaFunction: null,
+                  )),
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 0),
-                  child: MusicButton(buttonText: 'Music')),
-              Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 0),
+                  child: MusicButton(
+                    buttonText: 'Music',
+                    musicFunction: null,
+                  )),
+              const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 0),
                   child: StoreButton(buttonText: 'Store')),
             ],
@@ -221,25 +251,37 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 0),
-            child: NewsButton(buttonText: 'News'),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0),
+            child: NewsButton(
+              buttonText: 'News',
+              newsFunction: null,
+            ),
           ),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0),
               child: TourButton(
                 buttonText: 'Tour',
-                tourF: null,
+                tourFunction: null,
               )),
-          const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0),
-              child: BandButton(buttonText: 'Band')),
-          const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0),
-              child: MediaButton(buttonText: 'Media')),
-          const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0),
-              child: MusicButton(buttonText: 'Music')),
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 0),
+              child: BandButton(
+                buttonText: 'Band',
+                bandFunction: null,
+              )),
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 0),
+              child: MediaButton(
+                buttonText: 'Media',
+                mediaFunction: null,
+              )),
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 0),
+              child: MusicButton(
+                buttonText: 'Music',
+                musicFunction: null,
+              )),
           const Padding(
               padding: EdgeInsets.symmetric(horizontal: 0),
               child: StoreButton(buttonText: 'Store')),
@@ -265,9 +307,11 @@ ButtonStyle navBarButtonStyle() {
 // Custom NavBar Buttons
 class NewsButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
+  var newsFunction;
 
-  const NewsButton({
+  NewsButton({
     required this.buttonText, // Make the button text a required parameter
+    required this.newsFunction,
     Key? key,
   }) : super(key: key);
 
@@ -275,6 +319,7 @@ class NewsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
+        newsFunction();
         // Your onPressed logic
       },
       style: navBarButtonStyle(),
@@ -288,12 +333,12 @@ class NewsButton extends StatelessWidget {
 
 class TourButton extends StatelessWidget {
   final String buttonText;
-  var tourF;
+  var tourFunction;
   // Add a required field for the button text
 
   TourButton({
     required this.buttonText,
-    required this.tourF, // Make the button text a required parameter
+    required this.tourFunction, // Make the button text a required parameter
     Key? key,
   }) : super(key: key);
 
@@ -301,7 +346,7 @@ class TourButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        tourF();
+        tourFunction();
       },
       style: navBarButtonStyle(),
       child: Text(
@@ -314,9 +359,11 @@ class TourButton extends StatelessWidget {
 
 class BandButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
+  var bandFunction;
 
-  const BandButton({
+  BandButton({
     required this.buttonText, // Make the button text a required parameter
+    required this.bandFunction,
     Key? key,
   }) : super(key: key);
 
@@ -324,6 +371,7 @@ class BandButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
+        bandFunction();
         // Your onPressed logic
       },
       style: navBarButtonStyle(),
@@ -337,9 +385,11 @@ class BandButton extends StatelessWidget {
 
 class MediaButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
+  var mediaFunction;
 
-  const MediaButton({
+  MediaButton({
     required this.buttonText, // Make the button text a required parameter
+    required this.mediaFunction,
     Key? key,
   }) : super(key: key);
 
@@ -347,6 +397,7 @@ class MediaButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
+        mediaFunction();
         // Your onPressed logic
       },
       style: navBarButtonStyle(),
@@ -360,9 +411,11 @@ class MediaButton extends StatelessWidget {
 
 class MusicButton extends StatelessWidget {
   final String buttonText; // Add a required field for the button text
+  var musicFunction;
 
-  const MusicButton({
+  MusicButton({
     required this.buttonText, // Make the button text a required parameter
+    required this.musicFunction,
     Key? key,
   }) : super(key: key);
 
@@ -370,6 +423,7 @@ class MusicButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
+        musicFunction();
         // Your onPressed logic
       },
       style: navBarButtonStyle(),
