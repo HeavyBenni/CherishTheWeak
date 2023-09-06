@@ -55,7 +55,7 @@ class _NavDesktopViewState extends State<NavDesktopView>
               opacity: _opacityAnimation.value, // Use the animation value
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 0),
-                child: NewsButton(buttonText: 'Home'),
+                child: NewsButton(buttonText: 'News'),
               ),
             );
           },
