@@ -9,7 +9,7 @@ class Discography extends StatelessWidget {
     return Container(
       height: 500,
       width: MediaQuery.of(context).size.width,
-      color: Colors.black,
+      color: AppTheme.blackColor,
       child: Column(children: [
         Text(
           ' - Discography - ',
