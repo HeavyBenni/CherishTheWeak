@@ -42,10 +42,12 @@ class _MainHomeState extends State<MainHome> {
   tourbtn() {
     final RenderBox renderBox =
         tourKey.currentContext!.findRenderObject() as RenderBox;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final alignment = screenHeight > 900 ? 0.2 : 0.5; // Adjust as needed
     Scrollable.ensureVisible(
       tourKey.currentContext!,
       alignment:
-          0.2, // You can adjust this value to center the card on the screen.
+          alignment, // You can adjust this value to center the card on the screen.
       duration: const Duration(
           milliseconds: 500), // Optional duration for smooth scrolling.
     );
@@ -54,10 +56,12 @@ class _MainHomeState extends State<MainHome> {
   newsbtn() {
     final RenderBox renderBox =
         newsKey.currentContext!.findRenderObject() as RenderBox;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final alignment = screenHeight > 900 ? 0.2 : 0.5; // Adjust as needed
     Scrollable.ensureVisible(
       newsKey.currentContext!,
       alignment:
-          0.2, // You can adjust this value to center the card on the screen.
+          alignment, // You can adjust this value to center the card on the screen.
       duration: const Duration(
           milliseconds: 500), // Optional duration for smooth scrolling.
     );
@@ -66,10 +70,12 @@ class _MainHomeState extends State<MainHome> {
   bandbtn() {
     final RenderBox renderBox =
         bandKey.currentContext!.findRenderObject() as RenderBox;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final alignment = screenHeight > 900 ? 0.2 : 0.5; // Adjust as needed
+
     Scrollable.ensureVisible(
       bandKey.currentContext!,
-      alignment:
-          0.2, // You can adjust this value to center the card on the screen.
+      alignment: alignment,
       duration: const Duration(
           milliseconds: 500), // Optional duration for smooth scrolling.
     );
@@ -78,10 +84,12 @@ class _MainHomeState extends State<MainHome> {
   mediabtn() {
     final RenderBox renderBox =
         mediaKey.currentContext!.findRenderObject() as RenderBox;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final alignment = screenHeight > 900 ? 0.2 : 0.5; // Adjust as needed
     Scrollable.ensureVisible(
       mediaKey.currentContext!,
       alignment:
-          0.2, // You can adjust this value to center the card on the screen.
+          alignment, // You can adjust this value to center the card on the screen.
       duration: const Duration(
           milliseconds: 500), // Optional duration for smooth scrolling.
     );
@@ -90,10 +98,12 @@ class _MainHomeState extends State<MainHome> {
   musicbtn() {
     final RenderBox renderBox =
         musicKey.currentContext!.findRenderObject() as RenderBox;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final alignment = screenHeight > 900 ? 0.2 : 0.5; // Adjust as needed
     Scrollable.ensureVisible(
       musicKey.currentContext!,
       alignment:
-          0.2, // You can adjust this value to center the card on the screen.
+          alignment, // You can adjust this value to center the card on the screen.
       duration: const Duration(
           milliseconds: 500), // Optional duration for smooth scrolling.
     );
