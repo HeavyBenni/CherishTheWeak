@@ -94,19 +94,12 @@ class _MainHomeState extends State<MainHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Theme(
-        data: Theme.of(context).copyWith(
-          // Set the transparency here
-          canvasColor: Colors
-              .blue, //or any other color you want. e.g Colors.blue.withOpacity(0.5)
-        ),
-        child: CustomDrawer(
-          tourFunction: tourbtn,
-          newsFunction: newsbtn,
-          bandFunction: bandbtn,
-          mediaFunction: mediabtn,
-          musicFunction: musicbtn,
-        ),
+      drawer: CustomDrawer(
+        tourFunction: tourbtn,
+        newsFunction: newsbtn,
+        bandFunction: bandbtn,
+        mediaFunction: mediabtn,
+        musicFunction: musicbtn,
       ),
       body: Stack(
         children: [
