@@ -61,6 +61,24 @@ class _TourState extends State<Tour> {
 
               final tours = snapshot.data!.docs;
 
+tours.sort((a, b) {
+  final aData = a.data() as Map<String, dynamic>?;
+  final bData = b.data() as Map<String, dynamic>?;
+
+  final aDate = aData?['Date-start'] as Timestamp?;
+  final bDate = bData?['Date-start'] as Timestamp?;
+
+  final aDateTime = aDate?.toDate();
+  final bDateTime = bDate?.toDate();
+
+  if (aDateTime == null && bDateTime == null) return 0;
+  if (aDateTime == null) return 1; // assuming you want null dates at the end
+  if (bDateTime == null) return -1;
+
+  return aDateTime.compareTo(bDateTime);
+});
+
+
               return ListView.builder(
                 shrinkWrap:
                     true, // This is key to make ListView wrap its content
@@ -214,9 +232,6 @@ class _TourState extends State<Tour> {
                             child: const Divider(
                                 color: AppTheme
                                     .whiteColor)), // This is the separator
-                      Container(
-                        height: 30,
-                      )
                       ],
                     );
                   }
@@ -224,6 +239,9 @@ class _TourState extends State<Tour> {
               );
             },
           ),
+          Container(
+            height: 30,
+          )
         ]));
   }
 }
