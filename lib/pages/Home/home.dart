@@ -151,10 +151,7 @@ class _MainHomeState extends State<MainHome> {
                   child: Card(
                       margin: EdgeInsets.zero,
                       key: tourKey,
-                      child: SizedBox(
-                        height: MediaQuery.of(context).size.height,
-                        child: const Tour(),
-                      )),
+                      child: const Tour()),
                 ),
                 // Band
                 Card(
