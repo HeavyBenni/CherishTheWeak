@@ -12,8 +12,14 @@ class News extends StatelessWidget {
       color: AppTheme.blackColor,
       child: Column(children: [
         Text(
-          ' - News - ',
+          'NEWS',
           style: AppTheme.text3,
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 20),
+          width: 175,
+          height: 2,
+          color: AppTheme.beigeColor,
         )
       ]),
     );

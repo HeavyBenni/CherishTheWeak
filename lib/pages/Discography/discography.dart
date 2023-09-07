@@ -12,8 +12,14 @@ class Discography extends StatelessWidget {
       color: AppTheme.blackColor,
       child: Column(children: [
         Text(
-          ' - Discography - ',
+          'DISCOGRAPHY',
           style: AppTheme.text3,
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 20),
+          width: 300,
+          height: 2,
+          color: AppTheme.beigeColor,
         )
       ]),
     );

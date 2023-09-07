@@ -42,15 +42,25 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
                           musicFunction: musicbtn,
                         );
                       } else if (constraints.maxWidth > 700) {
-                        return const Center(
+                        return Center(
                           child: NavLaptopView(
                             logoName: 'Cherish The Weak',
+                            tourFunction: tourbtn,
+                            newsFunction: newsbtn,
+                            bandFucntion: bandbtn,
+                            mediaFunction: mediabtn,
+                            musicFunction: musicbtn,
                           ),
                         );
                       } else {
-                        return const Center(
+                        return Center(
                           child: NavPhoneView(
                             logoName: 'Cherish The Weak',
+                            tourFunction: tourbtn,
+                            newsFunction: newsbtn,
+                            bandFucntion: bandbtn,
+                            mediaFunction: mediabtn,
+                            musicFunction: musicbtn,
                           ),
                         );
                       }

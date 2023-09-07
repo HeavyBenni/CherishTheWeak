@@ -35,84 +35,79 @@ class _MainHomeState extends State<MainHome> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
         opacity = 1.0; // Set opacity to 1 for a full fade-in effect
+        // Adjust as needed
       });
     });
   }
 
-  tourbtn() {
-    final RenderBox renderBox =
-        tourKey.currentContext!.findRenderObject() as RenderBox;
+  double getAlignment(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final alignment = screenHeight > 900 ? 0.2 : 0.5; // Adjust as needed
+    return screenHeight > 900 ? 0.2 : 1.3;
+  }
+
+  int getDuration() {
+    return 500; // Example duration in milliseconds, you can change it here.
+  }
+
+  tourbtn() {
     Scrollable.ensureVisible(
       tourKey.currentContext!,
-      alignment:
-          alignment, // You can adjust this value to center the card on the screen.
-      duration: const Duration(
-          milliseconds: 500), // Optional duration for smooth scrolling.
+      alignment: getAlignment(context),
+      duration: Duration(milliseconds: getDuration()),
     );
   }
 
   newsbtn() {
-    final RenderBox renderBox =
-        newsKey.currentContext!.findRenderObject() as RenderBox;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final alignment = screenHeight > 900 ? 0.2 : 0.5; // Adjust as needed
     Scrollable.ensureVisible(
       newsKey.currentContext!,
-      alignment:
-          alignment, // You can adjust this value to center the card on the screen.
-      duration: const Duration(
-          milliseconds: 500), // Optional duration for smooth scrolling.
+      alignment: getAlignment(context),
+      duration: Duration(milliseconds: getDuration()),
     );
   }
 
   bandbtn() {
-    final RenderBox renderBox =
-        bandKey.currentContext!.findRenderObject() as RenderBox;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final alignment = screenHeight > 900 ? 0.2 : 0.5; // Adjust as needed
-
     Scrollable.ensureVisible(
       bandKey.currentContext!,
-      alignment: alignment,
-      duration: const Duration(
-          milliseconds: 500), // Optional duration for smooth scrolling.
+      alignment: getAlignment(context),
+      duration: Duration(milliseconds: getDuration()),
     );
   }
 
   mediabtn() {
-    final RenderBox renderBox =
-        mediaKey.currentContext!.findRenderObject() as RenderBox;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final alignment = screenHeight > 900 ? 0.2 : 0.5; // Adjust as needed
     Scrollable.ensureVisible(
       mediaKey.currentContext!,
-      alignment:
-          alignment, // You can adjust this value to center the card on the screen.
-      duration: const Duration(
-          milliseconds: 500), // Optional duration for smooth scrolling.
+      alignment: getAlignment(context),
+      duration: Duration(milliseconds: getDuration()),
     );
   }
 
   musicbtn() {
     final RenderBox renderBox =
         musicKey.currentContext!.findRenderObject() as RenderBox;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final alignment = screenHeight > 900 ? 0.2 : 0.5; // Adjust as needed
     Scrollable.ensureVisible(
       musicKey.currentContext!,
-      alignment:
-          alignment, // You can adjust this value to center the card on the screen.
-      duration: const Duration(
-          milliseconds: 500), // Optional duration for smooth scrolling.
+      alignment: getAlignment(context),
+      duration: Duration(milliseconds: getDuration()),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const CustomDrawer(),
+      drawer: Theme(
+        data: Theme.of(context).copyWith(
+          // Set the transparency here
+          canvasColor: Colors
+              .blue, //or any other color you want. e.g Colors.blue.withOpacity(0.5)
+        ),
+        child: CustomDrawer(
+          tourFunction: tourbtn,
+          newsFunction: newsbtn,
+          bandFunction: bandbtn,
+          mediaFunction: mediabtn,
+          musicFunction: musicbtn,
+        ),
+      ),
       body: Stack(
         children: [
           SingleChildScrollView(
@@ -130,6 +125,14 @@ class _MainHomeState extends State<MainHome> {
                         imageFit: BoxFit.cover,
                       ),
                     ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      child: Image.asset(
+                        'lib/assets/images/ctwgig.jpg',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     Positioned.fill(
                       bottom:
                           0, // Adjust this value to control the gradient's height
@@ -139,7 +142,7 @@ class _MainHomeState extends State<MainHome> {
                             begin: Alignment.bottomCenter,
                             end: Alignment.topCenter,
                             colors: [
-                              AppTheme.blackColor
+                              Colors.black
                                   .withOpacity(0.9), // Semi-transparent black
                               Colors.transparent, // Fully transparent
                             ],
@@ -147,16 +150,9 @@ class _MainHomeState extends State<MainHome> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      child: Image.asset(
-                        'lib/assets/images/ctwgig.jpg',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
                   ],
                 ),
+
                 // Tour
                 SafeArea(
                   child: Card(
@@ -173,6 +169,11 @@ class _MainHomeState extends State<MainHome> {
                   margin: EdgeInsets.zero,
                   child: const Band(),
                 ),
+                Card(
+                  key: musicKey,
+                  margin: EdgeInsets.zero,
+                  child: Discography(),
+                ),
                 // News
                 Card(
                   key: newsKey,
@@ -186,11 +187,6 @@ class _MainHomeState extends State<MainHome> {
                   child: const Media(),
                 ),
                 // Music
-                Card(
-                  key: musicKey,
-                  margin: EdgeInsets.zero,
-                  child: Discography(),
-                ),
 
                 const Footer(),
 

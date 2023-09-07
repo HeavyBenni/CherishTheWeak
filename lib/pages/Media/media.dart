@@ -12,8 +12,14 @@ class Media extends StatelessWidget {
       color: AppTheme.blackColor,
       child: Column(children: [
         Text(
-          ' - Media - ',
+          'FOLLOW US',
           style: AppTheme.text3,
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 20),
+          width: 250,
+          height: 2,
+          color: AppTheme.beigeColor,
         )
       ]),
     );
